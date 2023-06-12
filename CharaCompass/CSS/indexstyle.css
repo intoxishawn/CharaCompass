@@ -1,0 +1,45 @@
+body{
+    background-color: rgb(141, 141, 141);
+    padding: 0%;
+    margin: 0%;
+}
+
+#titleHead{
+    text-align: center;
+    color: aliceblue;
+}
+
+#botoesBasicos{
+    display: flex;
+    justify-content: flex-end;
+}
+
+.botaoNav{
+    background-color: transparent;
+    color: aliceblue;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-weight: bold;
+    border-radius: 10px;
+    width: 100px;
+    transition: width 0.3s;
+}
+
+.botaoNav:hover{
+    background-color: beige;
+    color: rgb(141, 141, 141);
+    width: 120px;
+}
+
+#main{
+    margin-left: 50px;
+    margin-right: 50px;
+    background-color: aliceblue;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 10px;
+}
+
+footer{
+    text-align: center;
+    color: aliceblue;
+}
