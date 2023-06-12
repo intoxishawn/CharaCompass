@@ -14,16 +14,31 @@
     </div>
 
     <nav id="botoesBasicos">
-        <button class="botaoNav" a="../HTML/login.html">Login</button>
-        <button class="botaoNav">Cadastre-se!</button>
+        <button onclick = "AbreLogin()" class="botaoNav" a="../HTML/login.html">Login</button>
+        <button onclick = "AbreCadastro()" class="botaoNav">Cadastre-se!</button>
     </nav>
 
     <div id="main">
-        <p> Hello World</p>
+        <h2> Olá! Seja bem-vindo(a) ao CharaCompass!</h2>
+        <h3> O que é o CharaCompass?</h3>
+        <?php
+        $txt01 = file_get_contents('../PageTexts/HomePage_01.txt');
+        echo $txt01;
+        ?>
     </div>
 
     <footer> 
         <h3>CharaCompass - 2023</h3>
     </footer>
+
+    <script>
+        function AbreLogin(){
+            window.location.href = "login.html";
+        }
+
+        function AbreCadastro(){
+            window.location.href = "cadastro.html";
+        }
+    </script>
 </body>
 </html>
