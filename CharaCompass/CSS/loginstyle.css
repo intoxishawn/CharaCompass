@@ -1,0 +1,76 @@
+body{
+    background-color: rgb(141, 141, 141);
+    padding: 0%;
+    margin: 0%;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+header{
+    text-align: center;
+    color: aliceblue;
+}
+
+nav{
+    display: flex;
+    justify-content: flex-end;
+}
+
+#botaoHomePage{
+    background-color: transparent;
+    color: aliceblue;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-weight: bold;
+    border-radius: 10px;
+    width: 120px;
+    transition: width 0.3s;
+}
+
+#botaoHomePage:hover{
+    background-color: beige;
+    color: rgb(141, 141, 141);
+    width: 150px;
+}
+
+#mainDiv{
+    margin-left: 50px;
+    margin-right: 50px;
+    background-color: aliceblue;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 10px;
+    max-height: 600px;
+    text-align: center;
+}
+
+#formDiv{
+    background-color: rgb(141, 141, 141);
+    width: 200px;
+    height: 450px;
+    margin-bottom: 100px;
+}
+
+#detalhe01{
+    text-align: center;
+}
+
+#detalhe02{
+    text-decoration: none;
+    color: aliceblue;
+}
+
+#acessarConta{
+    display: flex;
+    justify-content: flex-end;
+    width: 80px;
+    background-color: transparent;
+    border-color: aliceblue;
+    color: aliceblue;
+    height: 20px;
+}
+
+footer{
+    text-align: center;
+    color: aliceblue;
+    padding: 0%;
+}
