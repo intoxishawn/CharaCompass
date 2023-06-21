@@ -5,14 +5,49 @@ body{
     margin-right: 10px;
 }
 
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+
 #titleHead{
     text-align: center;
     color: aliceblue;
 }
 
+h1{
+    font-family: 'Lobster', cursive;
+}
+
+h2{
+    font-family: 'Lobster', cursive;
+    text-align: center;
+}
+
+h3{
+    font-family: 'Lobster', cursive;
+    text-align: center;
+}
+
+.highlight{
+    display: inline-block;
+    background-color: #ee82ee;
+}
+
 #botoesBasicos{
     display: flex;
     justify-content: flex-end;
+}
+
+.explicacao01{
+    display: flex;
+    align-items: center;
+}
+
+.imagem01{
+    width: 200px;
+    margin-right: 20px;
+}
+
+.conteudo{
+    flex: 1;
 }
 
 .botaoNav{
