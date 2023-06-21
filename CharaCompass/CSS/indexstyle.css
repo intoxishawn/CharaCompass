@@ -1,5 +1,5 @@
 body{
-    background-color: rgb(141, 141, 141);
+    background-color: rgb(44, 43, 133);
     padding: 0%;
     margin-left: 10px;
     margin-right: 10px;
@@ -26,14 +26,14 @@ body{
 }
 
 .botaoNav:hover{
-    background-color: beige;
-    color: rgb(141, 141, 141);
+    background-color: rgb(151, 173, 248);
+    color: rgb(255, 0, 0);
     width: 120px;
 }
 
 #main{
-    margin-left: 50px;
-    margin-right: 50px;
+    margin-left: 10px;
+    margin-right: 10px;
     background-color: aliceblue;
     padding-left: 10px;
     padding-right: 10px;
