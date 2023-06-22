@@ -50,6 +50,44 @@ h3{
     flex: 1;
 }
 
+.hr_customizada{
+    width: 450px;
+    background-color: #ee82ee;
+    height: 2px;
+    border: none;
+}
+
+.explicacao02{
+    display: flex;
+}
+
+.item01{
+    width: calc(33.3% - 20px);
+    margin-right: 20px;
+    text-align: center;
+}
+
+.a_imagem01{
+    display: inline-block;
+}
+
+.imagem02{
+    width: 75%;
+    height: auto;
+    margin-bottom: 50px;
+}
+
+.titulo01{
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.titulo02{
+    font-size: 10px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
 .botaoNav{
     background-color: transparent;
     color: aliceblue;
