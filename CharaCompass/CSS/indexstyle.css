@@ -1,5 +1,5 @@
 body{
-    background-color: rgb(44, 43, 133);
+    background-color: #573b24;
     padding: 0%;
     margin-left: 10px;
     margin-right: 10px;
@@ -10,6 +10,10 @@ body{
 #titleHead{
     text-align: center;
     color: aliceblue;
+}
+
+p{
+    font-size: 20px;
 }
 
 h1{
@@ -28,7 +32,7 @@ h3{
 
 .highlight{
     display: inline-block;
-    background-color: #ee82ee;
+    background-color: #d9945b;
 }
 
 #botoesBasicos{
@@ -42,17 +46,27 @@ h3{
 }
 
 .imagem01{
-    width: 200px;
+    width: 300px;
+    height: 75%;
+    border-radius: 20px;
     margin-right: 20px;
+    opacity: 50%;
+    transition: 0.5s;
+}
+
+.imagem01:hover{
+    opacity: 100%;
+    width: 350px;
+    border-radius: 5px;
 }
 
 .conteudo{
     flex: 1;
-}
+    }
 
 .hr_customizada{
     width: 450px;
-    background-color: #ee82ee;
+    background-color: #7a4214;
     height: 2px;
     border: none;
 }
@@ -72,7 +86,7 @@ h3{
 }
 
 .imagem02{
-    width: 75%;
+    width: 50%;
     height: auto;
     margin-bottom: 10px;
     opacity: 50%;
@@ -81,6 +95,7 @@ h3{
 }
 
 .imagem02:hover{
+    width: 70%;
     opacity: 100%;
     border-radius: 0px;
 }
@@ -89,11 +104,11 @@ h3{
     font-size: 20px;
     margin-bottom: 10px;
     display: inline-block;
-    background-color: #ee82ee;
+    background-color: #d9945b;
 }
 
 .titulo02{
-    font-size: 15px;
+    font-size: 20px;
     margin-bottom: 20px;
     text-align: center;
 }
@@ -105,12 +120,11 @@ h3{
     font-weight: bold;
     border-radius: 10px;
     width: 100px;
-    transition: width 0.3s;
+    transition: 0.5s;
 }
 
 .botaoNav:hover{
-    background-color: rgb(151, 173, 248);
-    color: rgb(255, 0, 0);
+    background-color: #d9945b;
     width: 120px;
 }
 
@@ -121,19 +135,27 @@ h3{
   }
   
   #titulo03 {
-    margin-right: 7px;
+    margin-right: 20px;
     text-align: right;
   }
   
   #imagem03 {
     width: 300px;
     height: 200px;
+    border-radius: 20px;
+    opacity: 50%;
+    transition: 0.5s;
+  }
+  
+  #imagem03:hover{
+    opacity: 100%;
+    border-radius: 5px;
   }
 
 #main{
-    margin-left: 10px;
-    margin-right: 10px;
-    background-color: aliceblue;
+    margin-left: 80px;
+    margin-right: 80px;
+    background-color: #e9e4de;
     padding-left: 10px;
     padding-right: 10px;
     border-radius: 10px;
