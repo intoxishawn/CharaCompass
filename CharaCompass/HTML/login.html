@@ -5,43 +5,61 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../CSS/loginstyle.css">
-    <title>Acesse sua conta</title>
+    <title> Acessar a conta </title>
 </head>
 <body>
     <header>
         <h1> CharaCompass</h1>
         <h2> Acesse sua conta</h2>
     </header>
+    
+    <nav>
+        <button onclick="AbreHomepage()" class="nav_button"> Voltar </button>
+        <button onclick="AbreCadastro()" class="nav_button"> Criar conta! </button>
+    </nav>
 
-   <nav>
-    <button onclick="abreHomePage()" id="botaoHomePage"> Página inicial</button>
-   </nav>
-
-   <div id="mainDiv">
-    <br><br>
-        <div id="formDiv">
-           <form>
-            <label for="username"> Email </label><br>
-            <input type="text" id="username" name="username"><br><br>
-            <label for="password"> Senha </label><br>
-            <input type="password" id="password" name="password"><br><br>
-            <input type="submit" id="acessarConta" value="Acessar">
-            <p> ------------------------ </p>
-            <a id="detalhe02" href="../HTML/recuperarSenha.html"> Esqueci minha senha </a>
-           </form>
-        </div>
+    <div id="main">
+        <h3> Acesse sua conta </h3>
         <br><br>
-   </div>
+        <div id="formulario01">
+            <form>
+                <label for="email_cliente"> Email </label>
+                <br>
+                <input type="email" id="email_cliente" name="email01">
+                <br><br><br>
+                <label for="senha_cliente"> Senha </label>
+                <br>
+                <input type="password" id="senha_cliente" name="senha01">
+                <br><br><br>
+                <div id="recuperarsenha01">
+                <button class="botao01"> Acessar </button>
+                </div>
+                <br>
+                <hr>
+            </form>
+            <p> Esqueceu a senha?</p>
+            <button onclick="AbreRecuperarSenha()" class="botao01"> Recuperar senha </button>
+            </div>
+    </div>
 
-   <footer>
-    <h3>CharaCompass - 2023</h3>
-    <h4>A bussola do seu mundo para seus personagens </h4>
-   </footer>
+    <script>
+        function AbreHomepage(){
+            window.location.href = "index.html";
+        }
 
-   <script>
-    function abreHomePage(){
-        window.location.href= "index.html";
-    }
-   </script>
+        function AbreCadastro(){
+            window.location.href = "cadastro.html";
+        }
+
+        function AbreRecuperarSenha(){
+            window.location.href = "recuperarSenha.html";
+        }
+    </script>
+    </script>
+
+    <footer>
+        <h4> CharaCompass - 2023 </h4>
+        <p> A bussola do seu mundo para seus personagens </p>
+    </footer>
 </body>
 </html>

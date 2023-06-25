@@ -9,7 +9,7 @@ body{
 
 #titleHead{
     text-align: center;
-    color: aliceblue;
+    color: rgb(228, 200, 178);
 }
 
 p{
@@ -23,11 +23,17 @@ h1{
 h2{
     font-family: 'Lobster', cursive;
     text-align: center;
+    color: #18120c;
 }
 
 h3{
     font-family: 'Lobster', cursive;
     text-align: center;
+    color: #18120c;
+}
+
+#footnote{
+    color: whitesmoke;
 }
 
 .highlight{
@@ -119,6 +125,7 @@ h3{
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     font-weight: bold;
     border-radius: 10px;
+    border: 1px solid #d9945b;
     width: 100px;
     transition: 0.5s;
 }
