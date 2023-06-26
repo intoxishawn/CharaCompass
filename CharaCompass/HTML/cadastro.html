@@ -14,8 +14,8 @@
     </header>
 
     <nav>
-        <button class="nav_button"> Voltar </button>
-        <button class="nav_button"> Login </button>
+        <button onclick="AbreHome()" class="nav_button"> Voltar </button>
+        <button onclick="AbreLogin()" class="nav_button"> Login </button>
     </nav>
 
     <div id="main">
@@ -23,20 +23,36 @@
         <form>
             <label for="new_username"> Username </label>
             <br>
-            <input type="text" id="new_username" name="new_username">
+            <input type="text" id="new_username" name="new_username" class="input01">
             <br><br><br>
             <label for="new_email"> Email </label>
             <br>
-            <input type="email" id="new_email" name="new_email">
+            <input type="email" id="new_email" name="new_email" class="input01">
             <br><br><br>
             <label for="new_senha"> Senha </label>
             <br>
-            <input type="password" id="new_senha" name="new_senha">
+            <input type="password" id="new_senha" name="new_senha" class="input01">
             <br><br><br>
-            <input type="submit" value="Criar Conta">
+            <div id="criarconta01">
+            <input type="submit" value="Criar Conta" id="submit01" class="input01">
+            </div>
+            <br>
+            <hr>
         </form>
+        <p> Já possui conta? </p>
+        <button id="submit01"> Acessar </button>
     </div>
     </div>
+
+    <script>
+        function AbreHome(){
+            window.location.href = "index.html";
+        }
+
+        function AbreLogin(){
+            window.location.href = "login.html";
+        }
+        </script>
 
     <footer>
         <h3> CharaCompass - 2023 </h3>
