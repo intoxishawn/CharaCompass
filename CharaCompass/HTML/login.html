@@ -15,7 +15,7 @@
     
     <nav>
         <button onclick="AbreHomepage()" class="nav_button"> Voltar </button>
-        <button onclick="AbreCadastro()" class="nav_button"> Criar conta! </button>
+        <button onclick="AbreCadastro()" class="nav_button"> Cadastre-se </button>
     </nav>
 
     <div id="main">
@@ -31,7 +31,7 @@
                 <input type="text" id="senha_cliente" name="senha01" class="input01" oninput="SubstituirCaracteres()">
                 <br><br><br>
                 <div id="recuperarsenha01">
-                <input type="submit" value="Acessar" id="submit01">
+                <input type="submit" value="Acessar" id="submit01" onclick="AbreInicial()">
                 </div>
                 <br>
                 <hr>
@@ -53,6 +53,11 @@
         function AbreRecuperarSenha(){
             alert("Esta página ainda está em construção.");
         }
+
+        function AbreInicial(){
+            window.location.href = "inicialUsuario.html";
+        }
+
         function SubstituirCaracteres(){
             var senhaInput = document.getElementById("senha_cliente");
             var valor = senhaInput.value;
