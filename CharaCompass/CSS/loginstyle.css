@@ -10,7 +10,7 @@ body{
 }
 
 header{
-    font-family: Lobster;
+    font-family: 'Lobster', cursive;
     text-align: center;
     color: #e4c8b2;
     font-size: large;
@@ -41,7 +41,7 @@ nav{
 }
 
 h3{
-    font-family: Lobster;
+    font-family: 'Lobster', cursive;
     text-align: center;
     color: #18120c;
 }
@@ -72,7 +72,7 @@ h3{
 }
 
 label{
-    font-family: Lobster;
+    font-family: 'Lobster', cursive;
     color:#18120c;
 }
 
