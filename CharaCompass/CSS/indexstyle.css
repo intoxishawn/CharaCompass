@@ -5,6 +5,11 @@ body{
     margin-right: 10px;
 }
 
+a{
+    text-align: center;
+    text-decoration: none;
+}
+
 #titleHead{
     text-align: center;
     color: rgb(228, 200, 178);
@@ -42,6 +47,7 @@ h3{
 #botoesBasicos{
     display: flex;
     justify-content: flex-end;
+    margin-right: 80px;
 }
 
 .explicacao01{

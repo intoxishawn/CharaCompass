@@ -28,9 +28,6 @@ function my_autoload ($pClassName) {
         return ;
     }
 
-    //Versão recursiva (muito cuidado)
-
-
 }
 spl_autoload_register("my_autoload");
 ?>
