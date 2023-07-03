@@ -8,31 +8,75 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+    <script src="../JS/inicial_personagens.js"></script>
     <title>Meus Personagens</title>
 </head>
 <body>
-   <header>
-        <h1> CharaCompass </h1>
-        <p> Meus personagens </p>
-   </header> 
-
-   <nav>
-        <button> Meu Perfil </button>
-        <button> Desconectar </button>
-   </nav>
-
-   <div>
-        <nav>
-            <button> Galeria </button>
-            <button> Personagens </button>
-            <button> Mundos </button>
-            <button> Objetos </button>
-        </nav>
-   </div>
-
-   <footer>
-    <h3> CharaCompass - 2023 </h3>
-    <p> A bússola do seu mundo para seus personagens </p>
-   </footer>
+     <header>
+          <h1> CharaCompass </h1>
+          <p> Criações </p>
+      </header>
+  
+      <nav>
+          <button class="nav_button" onclick="abreGaleria()"> Galeria </button>
+          <button class="nav_button" onclick="abrePersonagens()"> Personagens </button>
+          <button class="nav_button" onclick="abreMundos()"> Mundos </button>
+          <button class="nav_button" onclick="abreObjetos()"> Objetos </button>
+      </nav>
+  
+      <div id="main">
+          <div class="explicacao01">
+              <a onclick="abrePerfilPersonagem()"><img id="pfp" src="../Imagens/avatarplaceholder.png" alt="Imagem do CharaCompass"></a>
+              <div class="conteudo">
+                  <p id="username"> Nome do Usuário</p>
+                  <p>Biografia</p>
+              </div>
+          </div>
+         
+        <h3 id="titulo_pagina"> Seus personagens </h3>
+        <div id="galeria">
+          <a onclick="abrePerfilPersonagem()">
+              <img src="../Imagens/placeholder.png">
+              <p> Exemplo de visualização </p>
+          </a>
+          <a onclick="abrePerfilPersonagem()">
+              <img src="../Imagens/placeholder.png">
+              <p> Nome do personagem </p>
+          </a>
+          <a onclick="abrePerfilPersonagem()">
+              <img src="../Imagens/placeholder.png">
+              <p> Nome do personagem </p>
+          </a>
+          <a onclick="abrePerfilPersonagem()">
+              <img src="../Imagens/placeholder.png">
+              <p> Nome do personagem </p>
+          </a>
+          <a onclick="abrePerfilPersonagem()">
+              <img src="../Imagens/placeholder.png">
+              <p> Nome do personagem </p>
+          </a>
+          <a onclick="abrePerfilPersonagem()">
+              <img src="../Imagens/placeholder.png">
+              <p> Nome do personagem </p>
+          </a>
+          <a onclick="abrePerfilPersonagem()">
+              <img src="../Imagens/placeholder.png">
+              <p> Nome do personagem </p>
+          </a>
+          <a onclick="abrePerfilPersonagem()">
+              <img src="../Imagens/placeholder.png">
+              <p> Nome do personagem </p>
+          </a>
+          <a onclick="abrePerfilPersonagem()">
+              <img src="../Imagens/placeholder.png">
+              <p> Nome do personagem </p>
+          </a>
+        </div>
+        </div>
+  
+      <footer>
+          <h3> CharaCompass - 2023 </h3>
+          <p> A bússola do seu mundo para seus personagens </p>
+      </footer>
 </body>
 </html>

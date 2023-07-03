@@ -8,8 +8,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
-    <link href="../JS/index.js">
-    <title>Home</title>
+    <script src="../JS/indexCodes.js"></script>
+    <title>Página inicial</title>
 </head>
 <body>
     <div id="titleHead">
@@ -18,8 +18,8 @@
     </div>
 
     <nav id="botoesBasicos">
-        <a class="botaoNav" href="?acao=login"> Login </a>
-        <a href="?acao=cadastro"class="botaoNav">Cadastre-se!</a>
+        <button class="botaoNav" onclick="AbreLogin()"> Login </button>
+        <button class="botaoNav" onclick="AbreCadastro()">Cadastre-se!</button>
     </nav>
 
     <div id="main">

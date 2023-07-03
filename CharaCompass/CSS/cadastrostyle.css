@@ -17,6 +17,8 @@ header{
 nav{
     display: flex;
     justify-content:flex-end;
+    margin-right: 45px;
+    margin-bottom: 5px;
 }
 
 .nav_button{

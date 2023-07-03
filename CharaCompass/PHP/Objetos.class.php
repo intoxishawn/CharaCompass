@@ -18,12 +18,4 @@ class Objetos{
     private $aplicabilidade;
     private $passado;
 
-    //save
-    public function save(){
-        $pdo= conexao();
-        try{
-            $stmt = $pdo->prepare('INSERT INTO Personagens');
-        }
-    }
-}
 ?>

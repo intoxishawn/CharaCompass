@@ -8,6 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+    <script src="../JS/loginCodes.js"></script>
     <title> Acessar a conta </title>
 </head>
 <body>
@@ -43,39 +44,7 @@
             <button onclick="AbreRecuperarSenha()" class="botao01"> Recuperar senha </button>
             </div>
     </div>
-
-    <script>
-        function AbreHomepage(){
-            window.location.href = "index.html";
-        }
-
-        function AbreCadastro(){
-            window.location.href = "cadastro.html";
-        }
-
-        function AbreRecuperarSenha(){
-            alert("Esta página ainda está em construção.");
-        }
-
-        function AbreInicial(){
-            window.location.href = "inicialUsuario.html";
-        }
-
-        function SubstituirCaracteres(){
-            var senhaInput = document.getElementById("senha_cliente");
-            var valor = senhaInput.value;
-            var ocultar = "";
-
-            for(var i = 0; i < valor.length ; i++){
-                ocultar += "*";
-            }
-
-            senhaInput.value = ocultar;
-        }
-    </script>
-
-
-    <footer>
+        <footer>
         <h4> CharaCompass - 2023 </h4>
         <p> A bussola do seu mundo para seus personagens </p>
     </footer>
