@@ -31,6 +31,10 @@ nav{
     transition: 0.5s;
 }
 
+.conteudo{
+    color: #573b24;
+}
+
 .nav_button:hover{
     width: 120px;
     background-color: #7a4214;
@@ -39,8 +43,19 @@ nav{
 }
 
 #menu_perfil{
-    padding-left: 5px;
-}
+        padding-left: 55px;;
+    }
+
+.label-imagem {
+        display: flex;
+        flex-direction: column;
+        font-style: italic;
+        color: #573b24;
+      }
+      
+.input-imagem {
+        visibility: hidden;
+    }
 
 #main{
     background-color: #eee0d5;
@@ -81,6 +96,14 @@ nav{
     height: 75%;
     border-radius: 100%;
     margin-right: 20px;
+}
+
+.bio{
+    width: 500px;
+    height: 30px;
+    position: absolute;
+    background-color:#e4c8b2;
+    border: 1px solid #573b24;
 }
 
 footer{

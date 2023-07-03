@@ -7,8 +7,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../CSS/perfilstyle.css">
-    <script src="../JS/perfilUsuario.js"></script>
+    <link rel="stylesheet" href="../CSS/editarUsuario.css">
+    <script src="../JS/editarUsuario.js"></script>
     <title>Perfil do Usuário</title>
 </head>
 <body>
@@ -26,16 +26,26 @@
   
       <div id="main">
           <div class="explicacao01">
-              <img id="pfp" src="../Imagens/avatarplaceholder.png" alt="Imagem do CharaCompass"></a>
+              <img id="pfp" src="../Imagens/avatarplaceholder.png" alt="Imagem do CharaCompass">
               <div class="conteudo">
-                  <p id="username"> Nome do Usuário</p>
-                  <p>Biografia</p>
+                <label> Nome de Usuário</label>
+                <br>
+                <input type="text" class="bio">
+                <br><br><br>
+                <label> Biografia </label>
+                <br>
+                <textarea rows="4" cols="50" class="bio" ></textarea>
               </div>
             </div>
-            <br><br>
             <div id="menu_perfil">
-                <button class="nav_perfil" onclick="abreEditar()"> Editar </button>
-                <button class="nav_perfil" onclick="desconectar()"> Desconectar </button>
+                <label for="add_imagem" class="label-imagem">
+                    <input type="file" id="add_imagem" accept="image/*" class="input-imagem">
+                    Selecione uma imagem
+                  </label>                  
+                <br>
+                <button class="nav_perfil" onclick="abrePerfil()"> Salvar </button>
+                <br><br>
+                <button class="nav_perfil" onclick="abrePerfil()"> Cancelar </button>
               </div>
         </div>
    <footer>
