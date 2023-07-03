@@ -45,7 +45,7 @@ nav{
     padding-right: 10px;
     margin-left: 50px;
     margin-right: 50px;
-    height: 95vh;
+    display: inline-block;
 }
 
 footer{
@@ -64,6 +64,24 @@ text-align: justify;
 }
 
 #geral h3{
+    text-align: center;
+    color: #573b24;
+}
+
+#personalidade{
+    text-align: justify;
+}
+
+#personalidade h3{
+    text-align: center;
+    color: #573b24;
+}
+
+#passado{
+    text-align: justify;
+}
+
+#passado h3{
     text-align: center;
     color: #573b24;
 }
