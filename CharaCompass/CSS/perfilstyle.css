@@ -1,0 +1,54 @@
+body{
+    background-color: #573b24;
+    padding: 0%;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+header{
+    font-family: 'Lobster', cursive;
+    text-align: center;
+    color: #e4c8b2;
+    font-size: large;
+}
+
+nav{
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+.nav_button{
+    width: 100px;
+    margin-right: 5px;
+    background-color: transparent;
+    border-radius: 5px;
+    border: 1px solid #e4c8b270;
+    font-size: medium;
+    color: rgb(228, 200, 178);
+    font-family: 'Times New Roman', Times, serif;
+    transition: 0.5s;
+}
+
+.nav_button:hover{
+    width: 120px;
+    background-color: #7a4214;
+    border-color: #e4c8b2;
+    color: white;
+}
+
+#main{
+    background-color: #eee0d5;
+    border-radius: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-left: 50px;
+    margin-right: 50px;
+    height: 150vh;
+}
+
+.explicacao01{
+    display: flex;
+    align-items: center;
+}
