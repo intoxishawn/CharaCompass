@@ -5,3 +5,7 @@ function AbreHome(){
 function AbreLogin(){
     window.location.href = "login.html";
 }
+
+function Sucesso(){
+    Alert('Cadastro feito com sucesso!');
+}

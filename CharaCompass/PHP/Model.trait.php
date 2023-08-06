@@ -14,12 +14,4 @@ trait Model{
         public function __set($prop, $valor){
                 $this->{$prop} = $valor;
             }
-
-        //save
-
-        //update
-
-        //deletar
-
-        //getAll
 }
