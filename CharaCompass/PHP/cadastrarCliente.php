@@ -1,15 +1,15 @@
 <?php
-$acao = $_GET['acao'];
+$acao = isset($_GET['acao']) ? $_GET['acao'] : '';
 
-include_once '../PHP/Cliente.class.php';
-
-if ($acao == 'cadastrar'){
-    $usuario = new Usuario();
-    $usuario->setNew_username($_POST['new_username']);
-    $usuario->setNew_email($_POST['new_email']);
-    $usuario->setNew_senha($_POST['new_senha']);
-    $usuario->save();
-    header('Location:../HTML.cadastro.html');
+if ($acao === 'cadastrar') {
+    include_once '../PHP/Cliente.class.php';
+    $cliente = new Cliente();
+    $cliente->setNew_username($_POST['new_username']);
+    $cliente->setNew_email($_POST['new_email']);
+    $cliente->setNew_senha($_POST['new_senha']);
+    $cliente->save();
+    
+    header('Location: ../HTML/cadastro.html');
     exit();
 }
 ?>

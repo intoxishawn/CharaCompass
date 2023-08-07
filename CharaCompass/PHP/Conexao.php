@@ -9,6 +9,5 @@ function conexao(){
   } catch(PDOException $e) {
     echo 'Houve um erro na conexão: ' . $e->getMessage();
   }
-
 }
 ?>

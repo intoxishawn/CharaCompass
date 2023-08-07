@@ -7,5 +7,6 @@ function AbreLogin(){
 }
 
 function Sucesso(){
-    Alert('Cadastro feito com sucesso!');
+    alert('Cadastro feito com sucesso!');
+    window.location.href = "cadastro.html";
 }

@@ -24,7 +24,7 @@
 
     <div id="main">
         <div id="formulario02">
-        <form action="../PHP/cadastrarCliente.php?acao=cadastrar" method="POST">
+            <form action="../PHP/cadastrarCliente.php?acao=cadastrar" method="POST" onsubmit="Sucesso()">
             <label for="new_username"> Username </label>
             <br>
             <input type="text" placeholder="Ex.: ParyBlocks" id="new_username" name="new_username" class="input01" maxlength="50" required="required">
@@ -38,7 +38,7 @@
             <input type="password" placeholder="Digite sua senha" id="new_senha" name="new_senha" class="input01" maxlength="50" required="required">
             <br><br><br>
             <div id="criarconta01">
-            <input onsubmit="Sucesso()" type="submit" value="Criar Conta" id="submit01" class="input01">
+            <input type="submit" value="Criar Conta" id="submit01" class="input01">
             </div>
             <br>
             <hr>
