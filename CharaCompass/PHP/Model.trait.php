@@ -19,13 +19,5 @@ trait Model{
         $metodo = str_replace('set', '', strtolower($metodo));
         $this->{$metodo} = $args[0]; 
     }
-
-    //save()
-
-    //delete()
-
-    //update()
-
-    //getAll()
 }
 ?>
