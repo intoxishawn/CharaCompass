@@ -1,5 +1,5 @@
 <?php
-include_once 'Conexao.php';
+include_once 'Controller/Conexao.php';
 
 class Personagem{
 

@@ -1,5 +1,5 @@
 <?php
-include_once 'Conexao.php';
+include_once 'Controller/Conexao.php';
 
 class Objetos{
 
@@ -17,5 +17,5 @@ class Objetos{
     private $origem;
     private $aplicabilidade;
     private $passado;
-
+}
 ?>

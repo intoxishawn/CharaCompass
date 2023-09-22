@@ -9,8 +9,6 @@ if ($acao === 'cadastrar') {
     $cliente->setSenha($_POST['new_senha']);
     $cliente->save();
 
-    
-    
     header('Location: ../HTML/cadastro.html');
     exit();
 }

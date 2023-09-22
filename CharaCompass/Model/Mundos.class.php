@@ -1,4 +1,5 @@
 <?php
+include_once 'Controller/Conexao.php';
 
 class Mundos{
 

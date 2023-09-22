@@ -7,7 +7,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
-    <script src="../JS/cadastroCodes.js"></script>
+    <script src="/CharaCompass/Controller/cadastroCodes.js"></script>
     <title> Criar Conta </title>
 </head>
 <body>
@@ -23,7 +23,7 @@
 
     <div id="main">
         <div id="formulario02">
-            <form action="../PHP/cadastrarCliente.php?acao=cadastrar" method="POST" onsubmit="Sucesso()">
+            <form action="/CharaCompass/Controller/cadastrarCliente.php?acao=cadastrar" method="POST" onsubmit="Sucesso()">
             <label for="new_username"> Username </label>
             <br>
             <input type="text" placeholder="Ex.: ParyBlocks" id="new_username" name="new_username" class="input01" maxlength="50" required="required">
