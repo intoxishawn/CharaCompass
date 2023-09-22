@@ -1,12 +1,7 @@
 function AbreHome(){
-    window.location.href = "index.html";
+    window.location.href = "/CharaCompass/View/index.html";
 }
 
 function AbreLogin(){
-    window.location.href = "login.html";
-}
-
-function Sucesso(){
-    alert('Cadastro feito com sucesso!');
-    window.location.href = "cadastro.html";
+    window.location.href = "/CharaCompass/View/login.html";
 }

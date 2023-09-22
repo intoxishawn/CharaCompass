@@ -53,7 +53,7 @@ class Cliente{
     //delete
     public static function delete($id){
         $pdo = conexao();
-        $stmt = $pdo->prepare('DELETE * FROM cliente WHERE id = :id');
+        $stmt = $pdo->prepare('DELETE FROM cliente WHERE id = :id');
         $stmt -> execute([':id'=>$id]);
     }
 
