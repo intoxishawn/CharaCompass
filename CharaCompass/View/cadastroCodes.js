@@ -1,7 +1,7 @@
 function AbreHome(){
-    window.location.href = "/CharaCompass/View/index.html";
+    window.location.href = "index.html";
 }
 
 function AbreLogin(){
-    window.location.href = "/CharaCompass/View/login.html";
+    window.location.href = "login.html";
 }
