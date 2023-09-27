@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 27-Set-2023 às 14:06
+-- Tempo de geração: 27-Set-2023 às 19:43
 -- Versão do servidor: 10.4.27-MariaDB
 -- versão do PHP: 8.2.0
 
@@ -61,6 +61,17 @@ CREATE TABLE `cliente` (
 -- --------------------------------------------------------
 
 --
+-- Estrutura da tabela `cliente_personagem`
+--
+
+CREATE TABLE `cliente_personagem` (
+  `fk_mundo` int(11) DEFAULT NULL,
+  `fk_cliente` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+-- --------------------------------------------------------
+
+--
 -- Estrutura da tabela `imagem`
 --
 
@@ -82,28 +93,6 @@ CREATE TABLE `mundos` (
   `informacoes_mundo` varchar(4000) NOT NULL,
   `trivia_mundo` varchar(4000) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_nopad_ci;
-
--- --------------------------------------------------------
-
---
--- Estrutura da tabela `mundo_cliente`
---
-
-CREATE TABLE `mundo_cliente` (
-  `fk_mundo` int(11) NOT NULL,
-  `fk_cliente` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
-
--- --------------------------------------------------------
-
---
--- Estrutura da tabela `mundo_imagem`
---
-
-CREATE TABLE `mundo_imagem` (
-  `fk_mundo` int(11) NOT NULL,
-  `fk_imagem` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 -- --------------------------------------------------------
 
@@ -182,6 +171,13 @@ ALTER TABLE `cliente`
   ADD PRIMARY KEY (`id_cliente`);
 
 --
+-- Índices para tabela `cliente_personagem`
+--
+ALTER TABLE `cliente_personagem`
+  ADD KEY `fk_mundo` (`fk_mundo`),
+  ADD KEY `fk_cliente` (`fk_cliente`);
+
+--
 -- Índices para tabela `imagem`
 --
 ALTER TABLE `imagem`
@@ -192,19 +188,6 @@ ALTER TABLE `imagem`
 --
 ALTER TABLE `mundos`
   ADD PRIMARY KEY (`id_mundo`);
-
---
--- Índices para tabela `mundo_cliente`
---
-ALTER TABLE `mundo_cliente`
-  ADD KEY `fk_mundo` (`fk_mundo`),
-  ADD KEY `fk_cliente` (`fk_cliente`);
-
---
--- Índices para tabela `mundo_imagem`
---
-ALTER TABLE `mundo_imagem`
-  ADD KEY `fk_imagem` (`fk_imagem`);
 
 --
 -- Índices para tabela `objetos`
@@ -270,17 +253,11 @@ ALTER TABLE `audio_personagem`
   ADD CONSTRAINT `fk_persona` FOREIGN KEY (`fk_persona`) REFERENCES `personagem` (`id_personagem`);
 
 --
--- Limitadores para a tabela `mundo_cliente`
+-- Limitadores para a tabela `cliente_personagem`
 --
-ALTER TABLE `mundo_cliente`
-  ADD CONSTRAINT `fk_cliente` FOREIGN KEY (`fk_cliente`) REFERENCES `cliente` (`id_cliente`),
-  ADD CONSTRAINT `fk_mundo` FOREIGN KEY (`fk_mundo`) REFERENCES `mundos` (`id_mundo`);
-
---
--- Limitadores para a tabela `mundo_imagem`
---
-ALTER TABLE `mundo_imagem`
-  ADD CONSTRAINT `fk_imagem` FOREIGN KEY (`fk_imagem`) REFERENCES `imagem` (`id_imagem`);
+ALTER TABLE `cliente_personagem`
+  ADD CONSTRAINT `cliente_personagem_ibfk_1` FOREIGN KEY (`fk_mundo`) REFERENCES `mundos` (`id_mundo`),
+  ADD CONSTRAINT `cliente_personagem_ibfk_2` FOREIGN KEY (`fk_cliente`) REFERENCES `cliente` (`id_cliente`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
