@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 27-Set-2023 às 19:43
+-- Tempo de geração: 28-Set-2023 às 22:21
 -- Versão do servidor: 10.4.27-MariaDB
 -- versão do PHP: 8.2.0
 
@@ -57,6 +57,17 @@ CREATE TABLE `cliente` (
   `senha_cliente` varchar(50) NOT NULL,
   `biografia_cliente` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_nopad_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `cliente_objeto`
+--
+
+CREATE TABLE `cliente_objeto` (
+  `fk_objeto` int(11) DEFAULT NULL,
+  `fk_cliente` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 -- --------------------------------------------------------
 
@@ -171,6 +182,13 @@ ALTER TABLE `cliente`
   ADD PRIMARY KEY (`id_cliente`);
 
 --
+-- Índices para tabela `cliente_objeto`
+--
+ALTER TABLE `cliente_objeto`
+  ADD KEY `fk_objeto` (`fk_objeto`),
+  ADD KEY `fk_cliente` (`fk_cliente`);
+
+--
 -- Índices para tabela `cliente_personagem`
 --
 ALTER TABLE `cliente_personagem`
@@ -251,6 +269,13 @@ ALTER TABLE `personagem`
 ALTER TABLE `audio_personagem`
   ADD CONSTRAINT `fk_audio` FOREIGN KEY (`fk_audio`) REFERENCES `audio` (`id_audio`),
   ADD CONSTRAINT `fk_persona` FOREIGN KEY (`fk_persona`) REFERENCES `personagem` (`id_personagem`);
+
+--
+-- Limitadores para a tabela `cliente_objeto`
+--
+ALTER TABLE `cliente_objeto`
+  ADD CONSTRAINT `cliente_objeto_ibfk_1` FOREIGN KEY (`fk_objeto`) REFERENCES `objetos` (`id_objeto`),
+  ADD CONSTRAINT `cliente_objeto_ibfk_2` FOREIGN KEY (`fk_cliente`) REFERENCES `cliente` (`id_cliente`);
 
 --
 -- Limitadores para a tabela `cliente_personagem`
