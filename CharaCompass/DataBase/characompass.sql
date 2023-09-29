@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 28-Set-2023 às 22:21
+-- Tempo de geração: 29-Set-2023 às 20:18
 -- Versão do servidor: 10.4.27-MariaDB
 -- versão do PHP: 8.2.0
 
@@ -61,6 +61,17 @@ CREATE TABLE `cliente` (
 -- --------------------------------------------------------
 
 --
+-- Estrutura da tabela `cliente_mundo`
+--
+
+CREATE TABLE `cliente_mundo` (
+  `fk_mundo` int(11) DEFAULT NULL,
+  `fk_cliente` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+-- --------------------------------------------------------
+
+--
 -- Estrutura da tabela `cliente_objeto`
 --
 
@@ -89,7 +100,8 @@ CREATE TABLE `cliente_personagem` (
 CREATE TABLE `imagem` (
   `id_imagem` int(11) NOT NULL,
   `titulo_imagem` varchar(50) NOT NULL,
-  `caminho_server_imagem` varchar(50) NOT NULL
+  `caminho_server_imagem` varchar(50) NOT NULL,
+  `fk_cliente` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_nopad_ci;
 
 -- --------------------------------------------------------
@@ -104,6 +116,17 @@ CREATE TABLE `mundos` (
   `informacoes_mundo` varchar(4000) NOT NULL,
   `trivia_mundo` varchar(4000) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_nopad_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `mundo_imagem`
+--
+
+CREATE TABLE `mundo_imagem` (
+  `fk_imagem` int(11) DEFAULT NULL,
+  `fk_mundo` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 -- --------------------------------------------------------
 
@@ -125,6 +148,28 @@ CREATE TABLE `objetos` (
   `aplicabilidade_objeto` varchar(50) NOT NULL,
   `passado_objeto` varchar(4000) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_nopad_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `objeto_imagem`
+--
+
+CREATE TABLE `objeto_imagem` (
+  `fk_imagem` int(11) DEFAULT NULL,
+  `fk_objeto` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `objeto_mundo`
+--
+
+CREATE TABLE `objeto_mundo` (
+  `fk_objeto` int(11) DEFAULT NULL,
+  `fk_mundo` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 -- --------------------------------------------------------
 
@@ -158,6 +203,39 @@ CREATE TABLE `personagem` (
   `trivia_personagem` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_nopad_ci;
 
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `personagem_imagem`
+--
+
+CREATE TABLE `personagem_imagem` (
+  `fk_imagem` int(11) DEFAULT NULL,
+  `fk_personagem` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `personagem_mundo`
+--
+
+CREATE TABLE `personagem_mundo` (
+  `fk_mundo` int(11) DEFAULT NULL,
+  `fk_personagem` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `personagem_objeto`
+--
+
+CREATE TABLE `personagem_objeto` (
+  `fk_objeto` int(11) DEFAULT NULL,
+  `fk_personagem` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
 --
 -- Índices para tabelas despejadas
 --
@@ -182,6 +260,13 @@ ALTER TABLE `cliente`
   ADD PRIMARY KEY (`id_cliente`);
 
 --
+-- Índices para tabela `cliente_mundo`
+--
+ALTER TABLE `cliente_mundo`
+  ADD KEY `fk_mundo` (`fk_mundo`),
+  ADD KEY `fk_cliente` (`fk_cliente`);
+
+--
 -- Índices para tabela `cliente_objeto`
 --
 ALTER TABLE `cliente_objeto`
@@ -199,7 +284,8 @@ ALTER TABLE `cliente_personagem`
 -- Índices para tabela `imagem`
 --
 ALTER TABLE `imagem`
-  ADD PRIMARY KEY (`id_imagem`);
+  ADD PRIMARY KEY (`id_imagem`),
+  ADD KEY `fk_cliente` (`fk_cliente`);
 
 --
 -- Índices para tabela `mundos`
@@ -208,16 +294,58 @@ ALTER TABLE `mundos`
   ADD PRIMARY KEY (`id_mundo`);
 
 --
+-- Índices para tabela `mundo_imagem`
+--
+ALTER TABLE `mundo_imagem`
+  ADD KEY `fk_imagem` (`fk_imagem`),
+  ADD KEY `fk_mundo` (`fk_mundo`);
+
+--
 -- Índices para tabela `objetos`
 --
 ALTER TABLE `objetos`
   ADD PRIMARY KEY (`id_objeto`);
 
 --
+-- Índices para tabela `objeto_imagem`
+--
+ALTER TABLE `objeto_imagem`
+  ADD KEY `fk_imagem` (`fk_imagem`),
+  ADD KEY `fk_objeto` (`fk_objeto`);
+
+--
+-- Índices para tabela `objeto_mundo`
+--
+ALTER TABLE `objeto_mundo`
+  ADD KEY `fk_mundo` (`fk_mundo`),
+  ADD KEY `fk_objeto` (`fk_objeto`);
+
+--
 -- Índices para tabela `personagem`
 --
 ALTER TABLE `personagem`
   ADD PRIMARY KEY (`id_personagem`);
+
+--
+-- Índices para tabela `personagem_imagem`
+--
+ALTER TABLE `personagem_imagem`
+  ADD KEY `fk_imagem` (`fk_imagem`),
+  ADD KEY `fk_personagem` (`fk_personagem`);
+
+--
+-- Índices para tabela `personagem_mundo`
+--
+ALTER TABLE `personagem_mundo`
+  ADD KEY `fk_mundo` (`fk_mundo`),
+  ADD KEY `fk_personagem` (`fk_personagem`);
+
+--
+-- Índices para tabela `personagem_objeto`
+--
+ALTER TABLE `personagem_objeto`
+  ADD KEY `fk_objeto` (`fk_objeto`),
+  ADD KEY `fk_personagem` (`fk_personagem`);
 
 --
 -- AUTO_INCREMENT de tabelas despejadas
@@ -271,6 +399,13 @@ ALTER TABLE `audio_personagem`
   ADD CONSTRAINT `fk_persona` FOREIGN KEY (`fk_persona`) REFERENCES `personagem` (`id_personagem`);
 
 --
+-- Limitadores para a tabela `cliente_mundo`
+--
+ALTER TABLE `cliente_mundo`
+  ADD CONSTRAINT `cliente_mundo_ibfk_1` FOREIGN KEY (`fk_mundo`) REFERENCES `mundos` (`id_mundo`),
+  ADD CONSTRAINT `cliente_mundo_ibfk_2` FOREIGN KEY (`fk_cliente`) REFERENCES `cliente` (`id_cliente`);
+
+--
 -- Limitadores para a tabela `cliente_objeto`
 --
 ALTER TABLE `cliente_objeto`
@@ -283,6 +418,54 @@ ALTER TABLE `cliente_objeto`
 ALTER TABLE `cliente_personagem`
   ADD CONSTRAINT `cliente_personagem_ibfk_1` FOREIGN KEY (`fk_mundo`) REFERENCES `mundos` (`id_mundo`),
   ADD CONSTRAINT `cliente_personagem_ibfk_2` FOREIGN KEY (`fk_cliente`) REFERENCES `cliente` (`id_cliente`);
+
+--
+-- Limitadores para a tabela `imagem`
+--
+ALTER TABLE `imagem`
+  ADD CONSTRAINT `fk_cliente` FOREIGN KEY (`fk_cliente`) REFERENCES `cliente` (`id_cliente`);
+
+--
+-- Limitadores para a tabela `mundo_imagem`
+--
+ALTER TABLE `mundo_imagem`
+  ADD CONSTRAINT `mundo_imagem_ibfk_1` FOREIGN KEY (`fk_imagem`) REFERENCES `imagem` (`id_imagem`),
+  ADD CONSTRAINT `mundo_imagem_ibfk_2` FOREIGN KEY (`fk_mundo`) REFERENCES `mundos` (`id_mundo`);
+
+--
+-- Limitadores para a tabela `objeto_imagem`
+--
+ALTER TABLE `objeto_imagem`
+  ADD CONSTRAINT `objeto_imagem_ibfk_1` FOREIGN KEY (`fk_imagem`) REFERENCES `imagem` (`id_imagem`),
+  ADD CONSTRAINT `objeto_imagem_ibfk_2` FOREIGN KEY (`fk_objeto`) REFERENCES `objetos` (`id_objeto`);
+
+--
+-- Limitadores para a tabela `objeto_mundo`
+--
+ALTER TABLE `objeto_mundo`
+  ADD CONSTRAINT `objeto_mundo_ibfk_1` FOREIGN KEY (`fk_mundo`) REFERENCES `mundos` (`id_mundo`),
+  ADD CONSTRAINT `objeto_mundo_ibfk_2` FOREIGN KEY (`fk_objeto`) REFERENCES `objetos` (`id_objeto`);
+
+--
+-- Limitadores para a tabela `personagem_imagem`
+--
+ALTER TABLE `personagem_imagem`
+  ADD CONSTRAINT `personagem_imagem_ibfk_1` FOREIGN KEY (`fk_imagem`) REFERENCES `imagem` (`id_imagem`),
+  ADD CONSTRAINT `personagem_imagem_ibfk_2` FOREIGN KEY (`fk_personagem`) REFERENCES `personagem` (`id_personagem`);
+
+--
+-- Limitadores para a tabela `personagem_mundo`
+--
+ALTER TABLE `personagem_mundo`
+  ADD CONSTRAINT `personagem_mundo_ibfk_1` FOREIGN KEY (`fk_mundo`) REFERENCES `mundos` (`id_mundo`),
+  ADD CONSTRAINT `personagem_mundo_ibfk_2` FOREIGN KEY (`fk_personagem`) REFERENCES `personagem` (`id_personagem`);
+
+--
+-- Limitadores para a tabela `personagem_objeto`
+--
+ALTER TABLE `personagem_objeto`
+  ADD CONSTRAINT `personagem_objeto_ibfk_1` FOREIGN KEY (`fk_objeto`) REFERENCES `objetos` (`id_objeto`),
+  ADD CONSTRAINT `personagem_objeto_ibfk_2` FOREIGN KEY (`fk_personagem`) REFERENCES `personagem` (`id_personagem`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
