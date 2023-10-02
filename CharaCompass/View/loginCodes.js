@@ -2,12 +2,12 @@ function AbreHomepage(){
     window.location.href = "index.html";
 }
 
-function AbreCadastro(){
-    window.location.href = "cadastro.php";
-}
-
 function AbreRecuperarSenha(){
     window.location.href = "recuperarSenha.html"
+}
+
+function AbreCadastro(){
+    window.location.href = "cadastro.php";
 }
 
 function AbreInicial(){

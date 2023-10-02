@@ -14,6 +14,6 @@ class ControladorGeral{
     }
 
     public function cadastro(){
-        include 'HTML/cadastro.html';
+        include 'HTML/cadastro.php';
     }
 }
