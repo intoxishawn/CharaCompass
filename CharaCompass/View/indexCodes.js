@@ -3,5 +3,5 @@ function AbreLogin() {
 }
 
 function AbreCadastro() {
-    window.location.href = "Cadastro.html";
+    window.location.href = "cadastro.php";
 }

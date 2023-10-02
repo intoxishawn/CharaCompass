@@ -1,3 +1,13 @@
+<?php
+session_start();
+
+if (isset($_SESSION['mensagem'])) {
+    echo '<div>' . $_SESSION['mensagem'] . '</div>';
+    
+    unset($_SESSION['mensagem']);
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>

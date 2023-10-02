@@ -8,6 +8,12 @@ if ($acao === 'cadastrar') {
     $cliente->setEmail($_POST['new_email']);
     $cliente->setSenha($_POST['new_senha']);
     $cliente->save();
+
+    if ($cliente->save()) {
+        $mensagem = "Cadastro realizado com sucesso!";
+    }
+    
+    header("Location: ../View/cadastro.php");
     exit();
 }
 ?>

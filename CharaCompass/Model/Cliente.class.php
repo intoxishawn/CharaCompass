@@ -18,11 +18,12 @@
         {
             $pdo = conexao();
             try {
+                $novasenha = password_hash($this->senha, PASSWORD_DEFAULT);
                 $stmt1 = $pdo->prepare('INSERT INTO cliente (nome_cliente, email_cliente, senha_cliente) VALUES(:nome, :email, :senha)');
                 $stmt1->execute([
                     ':nome' => $this->nome,
                     ':email' => $this->email,
-                    ':senha' => $this->senha
+                    ':senha' => $novasenha
                 ]);
                 return true;
             } catch(Exception $e) { 
