@@ -27,7 +27,7 @@
                 ]);
                 return true;
             } catch(Exception $e) { 
-echo $e->getMessage();
+                echo $e->getMessage();
                 return false;
             }
         }
@@ -72,6 +72,29 @@ echo $e->getMessage();
 
                 $lista[] = $cliente;
             } return $lista;
+        }
+
+        public function login(){
+            $pdo = conexao();
+            try{
+                $stmt = $pdo->prepare('SELECT id_usuario, email, senha FROM CLIENTE WHERE email = email');
+                $stmt->execute([
+                    ':email' => $this->email,
+                ]);
+                if ($row = $stmt->fetch(PDO::FETCH_ASSOC)){
+                    if(password_verify($this->senha, row['senha'])){
+                        $_SESSION ['cliente'] = $row['id_cliente'];
+                        $_SESSION ['email'] = $row['email'];
+                        header('Location:../view/inicialUsuario.html');
+                    } else{
+                        echo 'Erro no login';
+                    }
+                }
+                return false;   
+            }catch(Exception $e){
+                echo $e->getMessage();
+                return false;
+            }
         }
     }
 
