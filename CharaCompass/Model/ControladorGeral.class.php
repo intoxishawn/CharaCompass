@@ -9,7 +9,7 @@ class ControladorGeral{
     }
 
     public function login(){
-        include 'HTML/login.html';
+        include 'HTML/login.php';
 
     }
 

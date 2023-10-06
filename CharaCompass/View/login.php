@@ -4,9 +4,9 @@ include_once '../Model/Cliente.class.php';
 
 if(isset($_POST['email']) || isset($_POST['senha'])){
     if(strlen($_POST['email']) == 0){
-        echo "Email incorreto ou em branco"
+        echo "Email incorreto ou em branco";
     } else if(strlen($_POST['senha']) == 0){
-        echo "Senha incorreta ou em branco!"
+        echo "Senha incorreta ou em branco!";
     } else {
         $cliente = new Cliente();
         $cliente->setEmail($_POST['email']);
@@ -42,14 +42,14 @@ if(isset($_POST['email']) || isset($_POST['senha'])){
     <div id="main">
         
         <div id="formulario01">
-            <form>
+            <form action="../Controller/logarCliente.php?acao=login" method="POST">
                 <label for="email_cliente"> Email </label>
                 <br>
                 <input type="email" id="email_cliente" name="email01" class="input01">
                 <br><br><br>
                 <label for="senha_cliente"> Senha </label>
                 <br>
-                <input type="text" id="senha_cliente" name="senha01" class="input01" oninput="SubstituirCaracteres()">
+                <input type="password" id="senha_cliente" name="senha01" class="input01">
                 <br><br><br>
                 <div id="recuperarsenha01">
                 <input type="submit" value="Acessar" id="submit01" onclick="AbreInicial()">
