@@ -31,7 +31,7 @@ if ($acao === 'login') {
                      $usuario = $stmt->fetch(); 
 
                      $senha = $_POST['senha']; 
-                     $senha02 = $usuario['senha']; 
+                     $senha02 = $usuario['senha_cliente']; 
 
                      if(password_verify($senha, $senha02)){ 
 

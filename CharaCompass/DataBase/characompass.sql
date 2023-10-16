@@ -54,7 +54,7 @@ CREATE TABLE `cliente` (
   `id_cliente` int(11) NOT NULL,
   `nome_cliente` varchar(50) NOT NULL,
   `email_cliente` varchar(50) NOT NULL,
-  `senha_cliente` varchar(50) NOT NULL,
+  `senha_cliente` varchar(255) NOT NULL,
   `biografia_cliente` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_nopad_ci;
 
