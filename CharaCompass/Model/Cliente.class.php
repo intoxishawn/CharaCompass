@@ -76,28 +76,26 @@
 
         public function login(){
             $pdo = conexao();
-            var_dump($this);
             try{
                 $stmt = $pdo->prepare('SELECT id_cliente, email_cliente, senha_cliente FROM CLIENTE WHERE email_cliente = :email');
                 $stmt->execute([
                     ':email' => $this->email,
                 ]);
+                
                 if ($row = $stmt->fetch(PDO::FETCH_ASSOC)){
-                    if(password_verify($this->senha, $row['senha_cliente'])){
+                    if (password_verify($this->senha, $row['senha_cliente'])){
                         $_SESSION ['cliente'] = $row['id_cliente'];
                         $_SESSION ['email'] = $row['email_cliente'];
-                        header('Location:../view/inicialUsuario.html');
+                        header('Location: ../view/inicialUsuario.html');
                         exit();
-                    } else{
-                        echo 'Erro no login';
+                    } else {
+                        echo 'Senha incorreta';
                     }
                 } else {
-                    echo 'Erro no login';
+                    echo 'Email não encontrado';
                 }
-                return false;   
-            }catch(Exception $e){
-                echo $e->getMessage();
-                return false;
+            } catch(Exception $e){
+                echo 'Erro: ' . $e->getMessage();
             }
         }
     }

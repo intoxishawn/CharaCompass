@@ -45,11 +45,11 @@ if(isset($_POST['email']) || isset($_POST['senha'])){
             <form action="../Controller/logarCliente.php?acao=login" method="POST">
                 <label for="email_cliente"> Email </label>
                 <br>
-                <input type="email" id="email_cliente" name="email01" class="input01">
+                <input type="email" id="email_cliente" name="email" class="input01">
                 <br><br><br>
                 <label for="senha_cliente"> Senha </label>
                 <br>
-                <input type="password" id="senha_cliente" name="senha01" class="input01">
+                <input type="password" id="senha_cliente" name="senha" class="input01">
                 <br><br><br>
                 <div id="recuperarsenha01">
                 <input type="submit" value="Acessar" id="submit01" onclick="AbreInicial()">
