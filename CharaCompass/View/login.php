@@ -3,18 +3,12 @@ session_start();
 include_once '../Model/Cliente.class.php';
 
 if(isset($_POST['email']) || isset($_POST['senha'])){
-    if(strlen($_POST['email']) == 0){
-        echo "Email incorreto ou em branco";
-    } else if(strlen($_POST['senha']) == 0){
-        echo "Senha incorreta ou em branco!";
-    } else {
         $cliente = new Cliente();
         $cliente->setEmail($_POST['email']);
         $cliente->setSenha2($_POST['senha']);
         $usuario->login();
         return true;
     }
-}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -52,7 +46,7 @@ if(isset($_POST['email']) || isset($_POST['senha'])){
                 <input type="password" id="senha_cliente" name="senha" class="input01">
                 <br><br><br>
                 <div id="recuperarsenha01">
-                <input type="submit" value="Acessar" id="submit01" onclick="AbreInicial()">
+                <input type="submit" value="Acessar" id="submit01" onclick="validarForm()">
                 </div>
                 <br>
                 <hr>
