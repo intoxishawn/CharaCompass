@@ -1,25 +1,25 @@
 function abreGaleria(){
-    window.location.href = "inicialUsuario.html";
+    window.location.href = "inicialUsuario.php";
 }
 
 function abrePerfilUsuario(){
-    window.location.href = "PerfilUsuario.html";
+    window.location.href = "PerfilUsuario.php";
 }
 
 function abrePersonagens(){
-    window.location.href = "personagensUsuario.html";
+    window.location.href = "personagensUsuario.php";
 }
 
 function abreMundos(){
-    window.location.href = "mundosUsuario.html";
+    window.location.href = "mundosUsuario.php";
 }
 
 function abreObjetos(){
-    window.location.href = "objetosUsuario.html";
+    window.location.href = "objetosUsuario.php";
 }
 
 function abreEditar(){
-    window.location.href = "editar_Usuario.html";
+    window.location.href = "editar_Usuario.php";
 }
 
 function desconectar(){

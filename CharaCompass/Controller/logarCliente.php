@@ -21,9 +21,9 @@ if ($acao === 'login') {
                     if(password_verify($senha, $senha02)) { 
                         session_start(); 
                         session_regenerate_id(); 
-                        $_SESSION['id'] = $usuario['id']; 
+                        $_SESSION['id'] = $usuario['id_cliente']; 
                         $_SESSION['nome'] = $usuario['nome_cliente']; 
-                        header("Location: ../View/inicialUsuario.html"); 
+                        header("Location: ../View/inicialUsuario.php"); 
                         exit();
                     } else { 
                         exit();

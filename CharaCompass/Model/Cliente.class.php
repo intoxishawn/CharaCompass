@@ -86,7 +86,6 @@
                     if (password_verify($this->senha, $row['senha_cliente'])){
                         $_SESSION ['cliente'] = $row['id_cliente'];
                         $_SESSION ['email'] = $row['email_cliente'];
-                        header('Location: ../view/inicialUsuario.html');
                         exit();
                     } else {
                         echo 'Senha incorreta';

@@ -3,13 +3,9 @@ function AbreHomepage(){
 }
 
 function AbreRecuperarSenha(){
-    window.location.href = "recuperarSenha.html"
+    window.location.href = "recuperarSenha.php"
 }
 
 function AbreCadastro(){
     window.location.href = "cadastro.php";
-}
-
-function verificaCredenciais(){
-    
 }
