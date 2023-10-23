@@ -25,7 +25,8 @@ if ($acao === 'login') {
                         $_SESSION['nome'] = $usuario['nome_cliente']; 
                         header("Location: ../View/inicialUsuario.php"); 
                         exit();
-                    } else { 
+                    } else {
+                        header("Location: ../View/login.php");
                         exit();
                     }           
                 } else { 

@@ -7,7 +7,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
-    <script src="inicial_personagens.js"></script>
+    <script src="inicialCodes.js"></script>
     <title>Meus Personagens</title>
 </head>
 <body>
@@ -33,7 +33,7 @@
           </div>
 
           <div id="adição">
-            <button id="btn_add"> + </button>
+            <button id="btn_add" onclick="criarPersonagem()"> + </button>
         </div>
          
         <h3 id="titulo_pagina"> Seus personagens </h3>

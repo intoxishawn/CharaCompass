@@ -7,8 +7,7 @@ if(isset($_POST['email']) || isset($_POST['senha'])){
         $cliente->setEmail($_POST['email']);
         $cliente->setSenha2($_POST['senha']);
         $usuario->login();
-        return true;
-    }
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -36,7 +35,7 @@ if(isset($_POST['email']) || isset($_POST['senha'])){
     <div id="main">
         
         <div id="formulario01">
-            <form action="../Controller/logarCliente.php?acao=login" method="POST">
+            <form action="../Controller/logarCliente.php?acao=login" method="POST" id="login_id">
                 <label for="email_cliente"> Email </label>
                 <br>
                 <input type="email" id="email_cliente" name="email" class="input01" required>
@@ -53,6 +52,7 @@ if(isset($_POST['email']) || isset($_POST['senha'])){
             </form>
             <p> Esqueceu a senha?</p>
             <button onclick="AbreRecuperarSenha()" class="botao01"> Recuperar senha </button>
+            <h2 id="error"></h2>
             </div>
     </div>
         <footer>

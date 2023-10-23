@@ -27,7 +27,7 @@
         <div class="explicacao01">
             <a onclick="abrePerfilUsuario()"><img id="pfp" src="Imagens/avatarplaceholder.png" alt="Foto de perfil"></a>
             <div class="conteudo">
-                <p id="username"> Nome do Usuário</p>
+                <p id="username"> Bem vindo(a) Nome do Usuário!</p>
                 <p>Biografia</p>
             </div>
         </div>
