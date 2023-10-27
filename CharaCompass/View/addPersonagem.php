@@ -4,14 +4,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <!-- include libraries(jQuery, bootstrap) -->
-   <script type="text/javascript" src="//code.jquery.com/jquery-3.6.0.min.js"></script>
-    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" />
-    <script type="text/javascript" src="cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.tiny.cloud/1/al9qkfo7jx764azaiaav5nhrkxepq3vbm0av6fkgsk78r931/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
 
-    <link href="summernote-bs5.css" rel="stylesheet">
-    <script src="summernote-bs5.js"></script>
-    <script src="adicao.js"></script>
     <title> Painel do Personagem</title>
 </head>
 <body>
@@ -72,24 +66,21 @@
             <br>
             <input type="text">
             <br><br>
-
-            <label> Universo do personagem: </label>
-            <!-- fazer um dropdown para esse -->
-            <br><br>
             
             <label> Alinhamento do personagem: </label>
             <br>
             <input type="text">
             <br><br>
-
+            
             <label> Personalidade do personagem: </label>
             <br>
-            <textarea id="summernote" name="editordata"></textarea>
+            <textarea>
+                Welcome to TinyMCE!
+            </textarea>
             <br><br>
 
             <label> Pontos fortes do personagem: </label>
             <br>
-            <input type="text">
             <br><br>
 
             <label> Pontos fracos do personagem: </label>
@@ -109,11 +100,12 @@
 
             <label> Mentalidade do personagem: </label>
             <br>
-            <textarea id="summernote" name="editordata"></textarea>
+            <textarea></textarea>
             <br><br>
 
             <label> Passado do personagem: </label>
-            <textarea id="summernote" name="editordata"></textarea>
+            <br>
+            <textarea></textarea>
             <br><br>
 
             <label> Grupo do personagem: </label>
@@ -138,9 +130,18 @@
 
             <label> Trivias do personagem: </label>
             <br>
-            <textarea id="summernote" name="editordata"></textarea>
+            <textarea></textarea>
             <br><br>
 
+            <label> Como seu personagem soaria? Nos deixe ouvir! </label>
+            <br>
+            <input type="file" accept = ".mp3">
+            <br><br>
+
+            <label> Como seu personagem seria? Nos deixe ver! </label>
+            <br>
+            <input type="file" accept = ".png, .jpeg, .jpg">
+            <br><br><br>
             <input type="submit" value="Criar ficha!">
         </form>
     </div>
@@ -149,5 +150,19 @@
         <h3> CharaCompass - 2023 </h3>
         <p> A bússola do seu mundo para seus personagens </p>
     </footer>
+
+    //chama o summernote
+    <script>
+  tinymce.init({
+    selector: 'textarea',   
+    tinycomments_mode: 'embedded',
+    tinycomments_author: 'Author name',
+    mergetags_list: [
+      { value: 'First.Name', title: 'First Name' },
+      { value: 'Email', title: 'Email' },
+    ],
+    ai_request: (request, respondWith) => respondWith.string(() => Promise.reject("See docs to implement AI Assistant")),
+  });
+</script>
 </body>
 </html>

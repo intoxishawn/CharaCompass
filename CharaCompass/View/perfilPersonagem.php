@@ -25,6 +25,12 @@
             <h3> Nome do Personagem </h3>
         </div>
 
+        <div>
+            <audio controls>
+                <source type="audio/mp3">
+            </audio>
+        </div>
+
         <div id="icone">
             
         </div>

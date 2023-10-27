@@ -56,22 +56,27 @@
             <br><br>
             
             <label> Informações do Objeto: </label>
+            <br>
             <textarea id="summernote" name="editordata"></textarea>
             <br><br>
 
             <label> Simbolismos do Objeto: </label>
+            <br>
             <textarea id="summernote" name="editordata"></textarea>
             <br><br>
             
             <label> Origem do Objeto: </label>
+            <br>
             <textarea id="summernote" name="editordata"></textarea>
             <br><br>
 
             <label> Aplicabilidade do Objeto: </label>
+            <br>
             <textarea id="summernote" name="editordata"></textarea>
             <br><br>
 
             <label> Passado do Objeto: </label>
+            <br>
             <textarea id="summernote" name="editordata"></textarea>
             <br><br>
 
