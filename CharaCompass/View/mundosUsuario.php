@@ -33,7 +33,7 @@
         </div>
 
         <div id="adição">
-            <button id="btn_add"> + </button>
+            <button id="btn_add" onclick="criarMundo()"> + </button>
         </div>
        
       <h3 id="titulo_pagina"> Seus Mundos </h3>

@@ -22,7 +22,7 @@ function abrePerfilPersonagem(){
     window.location.href = "perfilPersonagem.php";
 }
 
-function criarPersonagens(){
+function criarPersonagem(){
     window.location.href = "addPersonagem.php";
 }
 

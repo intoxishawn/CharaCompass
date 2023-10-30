@@ -19,7 +19,7 @@ function abreObjetos(){
 }
 
 function abreEditar(){
-    window.location.href = "editar_Usuario.php";
+    window.location.href = "editarUsuario.php";
 }
 
 function desconectar(){

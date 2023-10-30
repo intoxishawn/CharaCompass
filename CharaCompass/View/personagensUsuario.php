@@ -32,9 +32,9 @@
               </div>
           </div>
 
-          <div id="adição">
-            <button id="btn_add" onclick="criarPersonagem()"> + </button>
-        </div>
+            <div id="adição">
+                 <button id="btn_add" onclick="criarPersonagem()"> + </button>
+            </div>
          
         <h3 id="titulo_pagina"> Seus personagens </h3>
         <div id="galeria">

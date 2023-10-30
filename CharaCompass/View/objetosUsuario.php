@@ -32,7 +32,7 @@
             </div> 
         </div>
        <div id="adição">
-                <button id="btn_add"> + </button>
+                <button id="btn_add" onclick="criarObjeto()"> + </button>
             </div>
       <h3 id="titulo_pagina"> Seus objetos </h3>
       <div id="galeria">
