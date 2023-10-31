@@ -1,3 +1,8 @@
+<?php 
+$mundo = Mundo::getOne($_GET['id']);
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -31,7 +36,9 @@
 
         <div id="geral">
             <h3> Informações gerais do Mundo </h3>
-            <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Vitae nunc sed velit dignissim sodales ut. Felis imperdiet proin fermentum leo vel. Mattis ullamcorper velit sed ullamcorper morbi tincidunt. Tincidunt arcu non sodales neque sodales ut etiam sit amet. Viverra adipiscing at in tellus integer feugiat scelerisque. Tellus in metus vulputate eu scelerisque. Semper quis lectus nulla at. Facilisi cras fermentum odio eu feugiat pretium. Id aliquet risus feugiat in ante metus dictum at. Senectus et netus et malesuada fames ac. Pellentesque pulvinar pellentesque habitant morbi. Diam vulputate ut pharetra sit. Posuere lorem ipsum dolor sit amet consectetur adipiscing elit. Dictumst quisque sagittis purus sit amet volutpat consequat. Viverra accumsan in nisl nisi scelerisque eu. Tincidunt eget nullam non nisi est sit. Sed tempus urna et pharetra pharetra massa massa ultricies. Interdum velit laoreet id donec ultrices. Imperdiet sed euismod nisi porta.
+            <p> 
+            <?php echo $mundo->getInfoMundo(); ?>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Vitae nunc sed velit dignissim sodales ut. Felis imperdiet proin fermentum leo vel. Mattis ullamcorper velit sed ullamcorper morbi tincidunt. Tincidunt arcu non sodales neque sodales ut etiam sit amet. Viverra adipiscing at in tellus integer feugiat scelerisque. Tellus in metus vulputate eu scelerisque. Semper quis lectus nulla at. Facilisi cras fermentum odio eu feugiat pretium. Id aliquet risus feugiat in ante metus dictum at. Senectus et netus et malesuada fames ac. Pellentesque pulvinar pellentesque habitant morbi. Diam vulputate ut pharetra sit. Posuere lorem ipsum dolor sit amet consectetur adipiscing elit. Dictumst quisque sagittis purus sit amet volutpat consequat. Viverra accumsan in nisl nisi scelerisque eu. Tincidunt eget nullam non nisi est sit. Sed tempus urna et pharetra pharetra massa massa ultricies. Interdum velit laoreet id donec ultrices. Imperdiet sed euismod nisi porta.
 
                 Odio pellentesque diam volutpat commodo. Volutpat commodo sed egestas egestas fringilla phasellus. Eget est lorem ipsum dolor sit amet consectetur adipiscing. Iaculis eu non diam phasellus vestibulum lorem sed. Cras sed felis eget velit aliquet sagittis id consectetur. In metus vulputate eu scelerisque felis imperdiet proin fermentum. Et malesuada fames ac turpis egestas. Ultricies tristique nulla aliquet enim. Pellentesque habitant morbi tristique senectus et netus et. Cursus euismod quis viverra nibh cras pulvinar. Sollicitudin aliquam ultrices sagittis orci a scelerisque purus.</p>
                 

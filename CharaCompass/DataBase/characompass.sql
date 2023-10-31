@@ -45,7 +45,7 @@ CREATE TABLE `cliente` (
   `nome_cliente` varchar(50) NOT NULL,
   `email_cliente` varchar(255) NOT NULL,
   `senha_cliente` varchar(255) NOT NULL,
-  `biografia_cliente` varchar(255) DEFAULT NULL
+  `biografia_cliente` text DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 -- --------------------------------------------------------
@@ -102,8 +102,8 @@ CREATE TABLE `imagem_personagem` (
 CREATE TABLE `mundo` (
   `id_mundo` int(255) NOT NULL,
   `nome_mundo` varchar(255) NOT NULL,
-  `info_mundo` varchar(255) DEFAULT NULL,
-  `trivia_mundo` varchar(255) DEFAULT NULL,
+  `info_mundo` text DEFAULT NULL,
+  `trivia_mundo` text DEFAULT NULL,
   `cliente_id` int(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
@@ -116,9 +116,9 @@ CREATE TABLE `mundo` (
 CREATE TABLE `objeto` (
   `id_objeto` int(255) NOT NULL,
   `nome_objeto` varchar(255) NOT NULL,
-  `caracteristicas` varchar(255) DEFAULT NULL,
-  `historia_objeto` varchar(255) DEFAULT NULL,
-  `trivia_objeto` varchar(255) DEFAULT NULL,
+  `caracteristicas` text DEFAULT NULL,
+  `historia_objeto` text DEFAULT NULL,
+  `trivia_objeto` text DEFAULT NULL,
   `cliente_id` int(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
@@ -131,10 +131,10 @@ CREATE TABLE `objeto` (
 CREATE TABLE `personagem` (
   `id_personagem` int(255) NOT NULL,
   `nome_personagem` varchar(255) NOT NULL,
-  `info_personagem` varchar(255) DEFAULT NULL,
-  `personalidade` varchar(255) DEFAULT NULL,
-  `historia` varchar(255) DEFAULT NULL,
-  `trivia_personagem` varchar(255) DEFAULT NULL,
+  `info_personagem` text DEFAULT NULL,
+  `personalidade` text DEFAULT NULL,
+  `historia` text DEFAULT NULL,
+  `trivia_personagem` text DEFAULT NULL,
   `cliente_id` int(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
