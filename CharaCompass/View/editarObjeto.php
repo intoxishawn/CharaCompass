@@ -7,7 +7,7 @@
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
     <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
-    <title>Edite seu personagem</title>
+    <title>Edite seu objeto</title>
 </head>
 <body>
     <div>
@@ -16,45 +16,34 @@
     </div>
 
     <div>
-        <h2> Painel do Personagem </h2>
+        <h2> Painel do Objeto </h2>
     </div>
 
     <div>
         <form>
-            <h3> Nome do personagem: </h3>
-          <input type="text" name="nome_p" id="nome_p">
-          
+            <h3> Nome do Objeto: </h3>
+            <input type="text" name="nome_obj" id="nome_obj" required>
+            <br>
             <div class="editorTexto">
-                <h3> Informações do personagem: </h3>
-                <textarea class ="summernote" name="info_p" id="info_p"></textarea>
+                <h3> Características do Objeto: </h3>
+                <textarea class ="summernote" name="c_obj" id="c_obj"></textarea>
             </div>
-
             <div class="editorTexto">
-                <h3> Personalidade: </h3>
-                <textarea class ="summernote" name="personalidade" id="personalidade"></textarea>
+                <h3> História do Objeto: </h3>
+                <textarea class ="summernote" name="historia_obj" id="historia_obj"></textarea>
             </div>
-
             <div class="editorTexto">
-                <h3> História do personagem: </h3>
-                <textarea class ="summernote" name="historia_p" id="historia_p"></textarea>
-            </div>
-
-            <div class="editorTexto">
-                <h3> Trivia sobre o personagem: </h3>
-                <textarea class ="summernote" name="trivia_p" id="trivia_p"></textarea>
+                <h3> Trivia do Objeto: </h3>
+                <textarea class ="summernote" name="trivia_obj" id="trivia_obj"></textarea>
             </div>
 
             <br>
 
-            <h3> Como seu personagem soaria?</h3>
-            <input type="file" accept="audio/mp3">
-
-            <br><br>
-
-            <h3> Como seu personagem é? </h3>
-            <input type="file" accept="image/*" multiple>
+            <h3>Como seria o seu objeto?</h3>
+            <input type="file" accept="image/*" multiple name="img_obj">
 
             <br><br><br>
+            
             <input type="submit" value="Salvar">
         </form>
         <br>

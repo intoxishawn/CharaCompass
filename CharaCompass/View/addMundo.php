@@ -11,13 +11,7 @@
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
     <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
-
-    <style>
-        .editorTexto{
-            width: 50%
-        }
-    </style>
-    <title> Adicione um mundo </title>
+    <title> Crie um mundo </title>
 </head>
 <body>
     <div>
@@ -30,28 +24,27 @@
     </div>
 
     <div>
-        <form>
+        <form action="../Controller/cadastrarCliente.php?acao=criar" method="POST">
             <h3> Nome do Mundo: </h3>
-            <input type="text">
+            <input type="text" name="new_name" id="new_name" required>
             <br><br>
 
             <div class="editorTexto">
                 <h3> Informações do mundo: </h3>
-                <br>
-                <div class="summernote"></div>
+                <textarea class ="summernote" name="new_info" id="new_info"></textarea>
             </div>
 
             <div class="editorTexto">
-                <h3> Trivias do mundo </h3>
-                <br>
-                <div class="summernote"></div>
+                <h3> Trivias do mundo: </h3>
+                <textarea class="summernote" name="new_trivia" id="new_trivia"></textarea>
             </div>
             <br>
 
             <h3> Como seria seu mundo?</h3>
-            <p>Adicione imagens e nos mostre!</p>
             <input type="file" name="imagem_mundo" accept="image/*" class="input-imagem" multiple>
+
             <br><br><br>
+            
             <input type="submit" value="Criar ficha!">
         </form>
     </div>
@@ -63,7 +56,7 @@
 
     <script>
         $('.summernote').summernote({
-        placeholder: 'Escreva sobre seu incrível mundo!',
+        placeholder: 'Escreva aqui...',
         tabsize: 2,
         height: 100,
         toolbar: [

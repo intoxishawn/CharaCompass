@@ -1,3 +1,7 @@
+<?php
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,7 +11,7 @@
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
     <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
-    <title>Edite seu personagem</title>
+    <title>Edite seu mundo</title>
 </head>
 <body>
     <div>
@@ -16,45 +20,26 @@
     </div>
 
     <div>
-        <h2> Painel do Personagem </h2>
+        <h2> Painel do Mundo </h2>
     </div>
 
     <div>
         <form>
-            <h3> Nome do personagem: </h3>
-          <input type="text" name="nome_p" id="nome_p">
-          
-            <div class="editorTexto">
-                <h3> Informações do personagem: </h3>
-                <textarea class ="summernote" name="info_p" id="info_p"></textarea>
-            </div>
-
-            <div class="editorTexto">
-                <h3> Personalidade: </h3>
-                <textarea class ="summernote" name="personalidade" id="personalidade"></textarea>
-            </div>
-
-            <div class="editorTexto">
-                <h3> História do personagem: </h3>
-                <textarea class ="summernote" name="historia_p" id="historia_p"></textarea>
-            </div>
-
-            <div class="editorTexto">
-                <h3> Trivia sobre o personagem: </h3>
-                <textarea class ="summernote" name="trivia_p" id="trivia_p"></textarea>
-            </div>
-
-            <br>
-
-            <h3> Como seu personagem soaria?</h3>
-            <input type="file" accept="audio/mp3">
-
+            <h3> Nome do Mundo: </h3>
+            <input type="text" name="new_name" id="new_name" required>
             <br><br>
 
-            <h3> Como seu personagem é? </h3>
-            <input type="file" accept="image/*" multiple>
+            <div class="editorTexto">
+                <h3> Informações do mundo: </h3>
+                <textarea class ="summernote" name="new_info" id="new_info"></textarea>
+            </div>
 
-            <br><br><br>
+            <div class="editorTexto">
+                <h3> Trivias do mundo: </h3>
+                <textarea class="summernote" name="new_trivia" id="new_trivia"></textarea>
+            </div>
+            <br>
+
             <input type="submit" value="Salvar">
         </form>
         <br>
@@ -68,7 +53,7 @@
 
     <script>
         $('.summernote').summernote({
-        tabsize: 1,
+        tabsize: 2,
         height: 100,
         toolbar: [
           ['style', ['style']],

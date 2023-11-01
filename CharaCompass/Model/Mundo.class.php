@@ -32,11 +32,11 @@ class Mundos{
         public function update(){
             $pdo = conexao();
             try{
-                $stmt = $pdo ->prepare('UPDATE mundo SET nome_mundo = :nome, info_mundo = :info, trivia_mundo = :trivia WHERE id_cliente = :id');
+                $stmt = $pdo ->prepare('UPDATE mundo SET nome_mundo = :nome, info_mundo = :info, trivia_mundo = :trivia WHERE id_mundo = :id');
                 $stmt->execute([
                     ':nome' => $this->nome,
-                    ':email' => $this->info,
-                    ':senha' => $this->trivia,
+                    ':info' => $this->info,
+                    ':trivia' => $this->trivia,
                     ':id' => $this->id
                 ]);
                 return true;
@@ -55,11 +55,11 @@ class Mundos{
             $pdo = conexao();
             $lista = [];
             foreach ($pdo->query('SELECT * FROM mundo') as $linha){
-                $mundo = new Cliente();
+                $mundo = new Mundo();
                 $mundo-> setId($linha['id_mundo']);
                 $mundo->setNome($linha['nome_mundo']);
                 $mundo->setInfo($linha['info_mundo']);
-                $mundo->setSenha($linha['trivia_mundo']);
+                $mundo->setTrivia($linha['trivia_mundo']);
 
                 $lista[] = $mundo;
             } return $lista;
