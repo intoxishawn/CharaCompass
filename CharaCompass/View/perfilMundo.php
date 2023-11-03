@@ -1,6 +1,6 @@
 <?php 
 $mundo = Mundo::getOne($_GET['id']);
-
+session_start();
 ?>
 
 <!DOCTYPE html>
