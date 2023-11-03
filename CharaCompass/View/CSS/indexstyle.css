@@ -1,0 +1,368 @@
+* {
+    box-sizing: border-box;
+  }
+  
+  body{
+    background-color: #573b24;
+  }
+
+  .row::after {
+    content: "";
+    clear: both;
+    display: table;
+  }
+  
+  [class*="col-"] {
+    float: left;
+    padding: 10px;
+  }
+  
+  html {
+    font-family:'Times New Roman', Times, serif;
+  }
+  
+  /* Telefones */
+  [class*="col-"] {
+    width: 100%;
+  }
+  
+  @media only screen and (min-width: 600px) {
+    /* Tablets: */
+    .col-s-1 {width: 8.33%;}
+    .col-s-2 {width: 16.66%;}
+    .col-s-3 {width: 25%;}
+    .col-s-4 {width: 33.33%;}
+    .col-s-5 {width: 41.66%;}
+    .col-s-6 {width: 50%;}
+    .col-s-7 {width: 58.33%;}
+    .col-s-8 {width: 66.66%;}
+    .col-s-9 {width: 75%;}
+    .col-s-10 {width: 83.33%;}
+    .col-s-11 {width: 91.66%;}
+    .col-s-12 {width: 100%;}
+  }
+  @media only screen and (min-width: 768px) {
+    /* PC */
+    .col-1 {width: 8.33%;}
+    .col-2 {width: 16.66%;}
+    .col-3 {width: 25%;}
+    .col-4 {width: 33.33%;}
+    .col-5 {width: 41.66%;}
+    .col-6 {width: 50%;}
+    .col-7 {width: 58.33%;}
+    .col-8 {width: 66.66%;}
+    .col-9 {width: 75%;}
+    .col-10 {width: 83.33%;}
+    .col-11 {width: 91.66%;}
+    .col-12 {width: 100%;}
+  }
+
+  @media (max-width: 768px) {
+    /*O que é o Characompass*/
+    #explicacao01 {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+    }
+
+    .imagem01{
+        max-width: 40%;
+        height: auto;
+        opacity: 50%;
+        border-radius: 5%;
+        transition: 0.5s;
+    }
+
+    .imagem01:hover{
+        opacity: 100%;
+        border-radius: 0%;
+    }
+    
+    .conteudo {
+        padding: 5px;
+        text-align: center;
+    }
+
+    p{
+        font-size: 16px;
+    }
+
+    /* Cada coisa possível no website*/
+    .item01 {
+        width: 100%;
+        display: block;
+        text-align: center;
+    }
+
+    .imagem02 {
+        max-width: 100%;
+        height: auto;
+    }
+
+    .titulo02 {
+        font-size: 16px;
+    }
+
+    .titulo01{
+        color: #3d210a;
+        text-align: center;
+    }
+
+    #explicacao03{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+    }
+
+    #imagem03{
+        max-width: 40%;
+        height: auto;
+        opacity: 50%;
+        border-radius: 5%;
+        transition: 0.5s;
+    }
+
+    #imagem03:hover{
+        opacity: 100%;
+        border-radius: 0%;
+    }
+}
+
+@media (max-width: 992px) {
+    #explicacao01 {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .imagem01{
+        max-width: 60%;
+        height: auto;
+        opacity: 50%;
+        border-radius: 5%;
+        transition: 0.5s;
+    }
+
+    .imagem01:hover{
+        opacity: 100%;
+        border-radius: 0%;
+    }
+    
+    .conteudo {
+        padding: 5px;
+        flex: 1;
+    }
+
+    p{
+        font-size: 20px;
+    }
+    
+    /* Cada coisa possível no website*/
+    .explicacao02 {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .item01 {
+        width: calc(33.33% - 20px);
+        display: block;
+        text-align: center;
+    }
+
+    .imagem02 {
+        max-width: 80%;
+        height: auto;
+        opacity: 50%;
+        border-radius: 15px;
+        transition: 0.5s;
+    }
+
+    .imagem02:hover{
+        max-width: 100%;
+        height: auto;
+        opacity: 1;
+        border-radius: 0;
+    }
+
+    .titulo02 {
+        font-size: 16px;
+    }
+
+    #explicacao03{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    #imagem03{
+        max-width: 80%;
+        height: auto;
+        opacity: 50%;
+        border-radius: 15px;
+        transition: 0.5s;
+    }
+
+    #imagem03:hover{
+        opacity: 100%;
+        border-radius: 0%;
+    }
+}
+
+@media (min-width: 993px) {
+    #explicacao01 {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    
+    .conteudo {
+        padding: 5px;
+        flex: 1;
+    }
+
+    .imagem01{
+        max-width: 35%;
+        height: 35%;
+        opacity: 50%;
+        border-radius: 5%;
+        transition: 0.5s;
+    }
+
+    .imagem01:hover{
+        opacity: 100%;
+        border-radius: 0%;
+    }
+
+    p{
+        font-size: 20px;
+    }
+
+        /* Cada coisa possível no website*/
+        .explicacao02 {
+            display: flex;
+            justify-content: space-between;
+        }
+    
+        .item01 {
+            width: calc(33.33% - 20px);
+            display: block;
+            text-align: center;
+        }
+    
+        .imagem02 {
+            max-width: 80%;
+            height: auto;
+            opacity: 50%;
+            border-radius: 15px;
+            transition: 0.5s;
+        }
+
+        .imagem02:hover{
+            max-width: 100%;
+            height: auto;
+            opacity: 1;
+            border-radius: 0;
+        }
+    
+        .titulo02 {
+            font-size: 16px;
+        }
+
+        #explicacao03{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+    
+        #imagem03{
+            max-width: 80%;
+            height: auto;
+            opacity: 50%;
+            border-radius: 15px;
+            transition: 0.5s;
+        }
+    
+        #imagem03:hover{
+            opacity: 100%;
+            border-radius: 0%;
+        }
+}
+
+  #main{
+    background-color: #fad8af;
+    padding-left: 5%;
+    padding-right: 5%;
+    border-radius: 15px;
+}
+
+.highlight{
+    background-color: #e29455;
+    border-radius: 5px;
+    display: inline-block;
+    color: #3d210a;
+    text-align: center;
+}
+
+.conteudo{
+    margin-left: 5px;
+}
+
+.hr_customizada{
+    width: 100%;
+    color: #3d210a;
+}
+
+h1{
+    font-family: 'Lobster', cursive;
+    color: #caa06c;
+  }
+
+  #sub{
+    font-family: 'Lobster', cursive;
+    color: #fad8af;
+  }
+
+header{
+    text-align: center;
+}
+
+#msg{
+    color: #18120c;
+    text-align: center;
+    font-family: 'Lobster', cursive;
+}
+
+nav{
+    width: 100%;
+    display: block;
+    text-align: center;
+    margin: 0.5%;
+}
+
+.botaoNav{
+    background-color: transparent;
+    color: aliceblue;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-weight: bold;
+    border-radius: 10px;
+    border: 1px solid #d9945b;
+    width: 7%;
+    height: 20px;
+    transition: 0.5s;
+}
+
+.botaoNav:hover{
+    background-color: #d9945b;
+    width: 10%;
+}
+
+footer{
+    width: 100%;
+    display: block;
+    text-align: center;
+    margin: 0.5%;
+    color: #caa06c;
+}
+
