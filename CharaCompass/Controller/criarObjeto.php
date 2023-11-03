@@ -2,7 +2,7 @@
 $acao = isset($_GET['acao']) ? $_GET['acao'] : '';
 
 if ($acao === 'criar') {
-    include_once '../Model/Objetos.class.php';
+    include_once '../Model/Objeto.class.php';
     $objeto = new Objeto();
     $objeto-> setId($POST['id_mundo']);
     $objeto->setNome($POST['nome_objeto']);

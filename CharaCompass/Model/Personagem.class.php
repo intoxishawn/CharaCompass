@@ -72,5 +72,16 @@ class Personagem{
                 $lista[] = $personagem;
             } return $lista;
         }
+
+        public static function getOne($id){
+            $pdo = conexao();
+            $stmt = $pdo->prepare('SELECT * FROM objeto WHERE id_objeto = :id');
+            $stmt->execute([
+                ':id' => $id
+            ]);
+            $objeto = $stmt->fetch(PDO::FETCH_ASSOC);
+    
+            return $objeto;
+        }
 }
 ?>

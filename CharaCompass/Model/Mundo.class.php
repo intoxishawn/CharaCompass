@@ -65,5 +65,16 @@ class Mundos{
             } return $lista;
         }
 
+        public static function getOne($id){
+            $pdo = conexao();
+            $stmt = $pdo->prepare('SELECT * FROM mundo WHERE id_mundo = :id');
+            $stmt->execute([
+                ':id' => $id
+            ]);
+            $mundo = $stmt->fetch(PDO::FETCH_ASSOC);
+    
+            return $mundo;
+        }
+
 }
 ?>
