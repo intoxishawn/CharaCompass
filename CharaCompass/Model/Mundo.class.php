@@ -1,7 +1,8 @@
 <?php
-include_once 'Controller/Conexao.php';
+include_once '../Controller/Conexao.php';
+include_once 'Model.trait.php';
 
-class Mundos{
+class Mundo{
 
     use Model;
 
@@ -9,6 +10,7 @@ class Mundos{
     private $nome;
     private $info;
     private $trivia;
+    private $cliente_id;
 
     //get e set em trait
 
@@ -16,11 +18,12 @@ class Mundos{
         {
             $pdo = conexao();
             try {
-                $stmt1 = $pdo->prepare('INSERT INTO mundo (nome_mundo, info_mundo, trivia_mundo) VALUES(:nome, :info, :trivia)');
+                $stmt1 = $pdo->prepare('INSERT INTO mundo (nome_mundo, info_mundo, trivia_mundo, cliente_id) VALUES(:nome, :info, :trivia, :cliente_id)');
                 $stmt1->execute([
                     ':nome' => $this->nome,
                     ':info' => $this->info,
-                    ':trivia' => $this->trivia
+                    ':trivia' => $this->trivia,
+                    ':cliente_id' => $this->cliente_id
                 ]);
                 return true;
             } catch(Exception $e) { 

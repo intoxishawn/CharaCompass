@@ -13,5 +13,13 @@ function my_autoload ($pClassName) {
         return ;
     }
 
+    $file = __DIR__ . "/Model/" . $pClassName . ".class.php";
+    if(file_exists($file)){
+        include_once $file;
+        return ;
+    }
+
+    include_once __DIR__ . "/Model/Model.trait.php";
+
 }
 ?>

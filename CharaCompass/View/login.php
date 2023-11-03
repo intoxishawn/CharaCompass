@@ -19,6 +19,7 @@ if(isset($_POST['email']) || isset($_POST['senha'])){
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
     <script src="loginCodes.js"></script>
+    <link href="../View/CSS/login_cadastro.css" rel="stylesheet">
     <title> Acessar a conta </title>
 </head>
 <body>
@@ -46,16 +47,17 @@ if(isset($_POST['email']) || isset($_POST['senha'])){
                 <br>
                 <input type="checkbox" onclick="mostrarSenha()"> Mostrar senha
                 <br><br><br>
-                <div id="recuperarsenha01">
                 <input type="submit" value="Acessar" id="submit01">
-                </div>
                 <br>
                 <hr>
             </form>
-            <p> Esqueceu a senha?</p>
-            <button onclick="AbreRecuperarSenha()" class="botao01"> Recuperar senha </button>
-            <h2 id="error"></h2>
+        </div>
+            <br><br>
+            <div id="recuperarsenha01">
+                <p> Esqueceu a senha?</p>
+                <button onclick="AbreRecuperarSenha()" class="botao01"> Recuperar senha </button>
             </div>
+            
     </div>
         <footer>
         <h4> CharaCompass - 2023 </h4>
