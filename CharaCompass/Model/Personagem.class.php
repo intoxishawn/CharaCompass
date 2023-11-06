@@ -1,5 +1,6 @@
 <?php
-include_once 'Controller/Conexao.php';
+include_once '../Controller/Conexao.php';
+include_once 'Model.trait.php';
 
 class Personagem{
 
@@ -11,6 +12,7 @@ class Personagem{
     private $personalidade;
     private $historia;
     private $trivia;
+    private $cliente_id;
 
     //get e set no model
 
@@ -18,13 +20,14 @@ class Personagem{
         {
             $pdo = conexao();
             try {
-                $stmt1 = $pdo->prepare('INSERT INTO personagem (nome_personagem, info_personagem, personalidade, historia, trivia_personagem) VALUES(:nome, :info, :personalidade, :historia, :trivia)');
+                $stmt1 = $pdo->prepare('INSERT INTO personagem (nome_personagem, info_personagem, personalidade, historia, trivia_personagem, cliente_id) VALUES(:nome, :info, :personalidade, :historia, :trivia, :cliente_id)');
                 $stmt1->execute([
                     ':nome' => $this->nome,
                     ':info' => $this->info,
                     ':personalidade' => $this->personalidade,
                     ':historia' => $this->historia,
-                    ':trivia' => $this->trivia
+                    ':trivia' => $this->trivia,
+                    ':cliente_id' => $this->cliente_id
                 ]);
                 return true;
             } catch(Exception $e) { 

@@ -3,7 +3,6 @@ $acao = isset($_GET['acao']) ? $_GET['acao'] : '';
 
 if ($acao === 'criar') {
     include_once '../Model/Objeto.class.php';
-
     session_start(); 
     $clienteId = $_SESSION["id"];
 
@@ -17,5 +16,6 @@ if ($acao === 'criar') {
     
     header("Location: ../View/index.html");
     exit();
+    
 }
 ?>

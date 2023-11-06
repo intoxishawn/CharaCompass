@@ -1,20 +1,21 @@
 <?php
 $acao = isset($_GET['acao']) ? $_GET['acao'] : '';
 
-if ($acao === 'criar') {
+if ($acao === 'criar'){
     include_once '../Model/Personagem.class.php';
+    session_start();
+    $clienteId = $_SESSION["id"];
+
     $personagem = new Personagem();
-    
-    $personagem->setId($POST['id_personagem']);
-    $personagem->setNome($POST['nome_personagem']);
-    $personagem->setInfo($POST['info_personagem']);
-    $personagem->setPersonalidade($POST['personalidade']);
-    $personagem->setHistoria($POST['historia']);
-    $personagem->setTrivia($POST['trivia_personagem']);
-    $objeto->save();
+    $personagem->__set("nome", $_POST['nome_p']);
+    $personagem->__set("info", $_POST['info_p']);
+    $personagem->__set("personalidade", $_POST['personalidade']);
+    $personagem->__set("historia", $_POST['historia_p']);
+    $personagem->__set("trivia", $_POST['trivia_p']);
+    $personagem->__set("cliente_id", $clienteId);
 
-
-    header("Location: ../View/addPersonagem.php");
+    header("Location: ../View/index.html");
     exit();
 }
+
 ?>
