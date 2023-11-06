@@ -23,17 +23,19 @@ if ($acao === 'login') {
                         session_regenerate_id(); 
                         $_SESSION['id'] = $usuario['id_cliente']; 
                         $_SESSION['nome'] = $usuario['nome_cliente']; 
-                        header("Location: ../View/inicialUsuario.php"); 
+                        header("Location: ../View/inicialUsuario.php");
                         exit();
-                    } else {
+                    } else { /* Senha errada*/
                         header("Location: ../View/login.php");
                         exit();
                     }           
-                } else { 
+                } else /*se o email não existe*/ {
+                    header("Location: ../View/login.php"); 
                     exit();
                 }
             }     
         } else { 
+            header("Location: ../View/login.php");
             exit();
         }
     }

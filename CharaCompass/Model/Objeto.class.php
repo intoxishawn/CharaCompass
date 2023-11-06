@@ -1,7 +1,8 @@
 <?php
-include_once 'Controller/Conexao.php';
+include_once '../Controller/Conexao.php';
+include_once 'Model.trait.php';
 
-class Objetos{
+class Objeto{
 
     use Model;
 
@@ -10,18 +11,20 @@ class Objetos{
     private $caracteristicas;
     private $historia;
     private $trivia;
+    private $cliente_id;
 
     //get e set no Model
 
     public function save(){
-        $pdo = conexao()
+        $pdo = conexao();
         try{
-            $stmt1 = $pdo->prepare('INSERT INTO objeto (nome_objeto, caracteristicas, historia_objeto, trivia_objeto) VALUES(:nome, :caracteristicas, :historia, :trivia)');
+            $stmt1 = $pdo->prepare('INSERT INTO objeto (nome_objeto, caracteristicas, historia_objeto, trivia_objeto, cliente_id) VALUES(:nome, :caracteristicas, :historia, :trivia, :cliente_id)');
             $stmt1->execute([
                 ':nome' => $this->nome,
                 ':caracteristicas' => $this->caracteristicas,
                 ':historia' => $this->historia,
-                'trivia' => $this->trivia
+                'trivia' => $this->trivia,
+                ':cliente_id' => $this->cliente_id
             ]);
             return true;
         }catch(Exception $e) { 
