@@ -59,15 +59,50 @@
 
 
   @media (max-width: 768px) {
-  
+    .input01 {
+      max-width: 50%;
+      background-color: #d9945b;
+      border-radius: 5px;
+      border: 1px #573b24 solid;
+  }
+
+  #formulario01 {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+  }
+
+  #recuperarsenha01 {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+  }
+
+  .nav_button {
+    display: flex; 
+    text-align: center;
+    align-self: center;
+    width: 100%;
+}
   }
 
   @media (max-width: 992px) {
-  
+    .input01{
+      max-width: 70%;
+      background-color: #d9945b;
+      border-radius: 5px;
+      border: 1px #573b24 solid;
+    }
   }
 
   @media (min-width: 993px) {
-  
+    .input01{
+      max-width: 100%;
+      background-color: #d9945b;
+      border-radius: 5px;
+      border: 1px #573b24 solid;
+    }
   }
 
   header{
@@ -80,8 +115,8 @@
 
   #main{
     background-color: #fad8af;
-    padding-left: 5%;
-    padding-right: 5%;
+    padding-left: 2%;
+    padding-right: 2%;
     border-radius: 15px;
   }
 
@@ -117,9 +152,23 @@
     color: #caa06c;
 }
 
-
 #formulario01{
-    
+  padding-top: 2%;
+  display: flexbox;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+#recuperarsenha01{
+  padding-top: 2%;
+  padding-bottom: 5%;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.hr_customizada{
+  color: #573b24;
 }

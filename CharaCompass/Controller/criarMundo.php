@@ -3,8 +3,7 @@ $acao = isset($_GET['acao']) ? $_GET['acao'] : '';
 
 if ($acao === 'criar') {
     include_once '../Model/Mundo.class.php';
-
-    session_start(); 
+    session_start();
     $clienteId = $_SESSION["id"];
 
     $mundo = new Mundo();

@@ -49,14 +49,18 @@ if(isset($_POST['email']) || isset($_POST['senha'])){
                 <br><br><br>
                 <input type="submit" value="Acessar" id="submit01">
                 <br>
-                <hr>
+                <hr class="hr_customizada">
             </form>
+            <div>
+                <div id="recuperarsenha01">
+                    <p> Esqueceu a senha?</p>
+                    <br><br>
+                    <button onclick="AbreRecuperarSenha()" id="botao01"> Recuperar senha </button>
+            </div>
+            </div>
         </div>
             <br><br>
-            <div id="recuperarsenha01">
-                <p> Esqueceu a senha?</p>
-                <button onclick="AbreRecuperarSenha()" class="botao01"> Recuperar senha </button>
-            </div>
+            
             
     </div>
         <footer>

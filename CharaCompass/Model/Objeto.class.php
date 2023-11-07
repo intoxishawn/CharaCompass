@@ -23,7 +23,7 @@ class Objeto{
                 ':nome' => $this->nome,
                 ':caracteristicas' => $this->caracteristicas,
                 ':historia' => $this->historia,
-                'trivia' => $this->trivia,
+                ':trivia' => $this->trivia,
                 ':cliente_id' => $this->cliente_id
             ]);
             return true;

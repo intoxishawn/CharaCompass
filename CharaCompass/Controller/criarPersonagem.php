@@ -13,6 +13,7 @@ if ($acao === 'criar'){
     $personagem->__set("historia", $_POST['historia_p']);
     $personagem->__set("trivia", $_POST['trivia_p']);
     $personagem->__set("cliente_id", $clienteId);
+    $personagem->save();
 
     header("Location: ../View/index.html");
     exit();
