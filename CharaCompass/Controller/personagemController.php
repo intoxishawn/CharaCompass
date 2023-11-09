@@ -17,6 +17,23 @@ if ($acao === 'criar'){
 
     header("Location: ../View/index.html");
     exit();
+    
+}  else if($acao === 'atualizar'){
+    $personagem = new Personagem();
+    $personagem->__set("nome", $_POST['nome_p']);
+    $personagem->__set("info", $_POST['info_p']);
+    $personagem->__set("personalidade", $_POST['personalidade']);
+    $personagem->__set("historia", $_POST['historia_p']);
+    $personagem->__set("trivia", $_POST['trivia_p']);
+    $personagem->update();
+
+    header("Location: ../View/index.html");
+    exit():
+
+} else if($acao === 'deletar'){
+    Personagem::delete($_REQUEST['id']);
+    header("Location: ../View/index.html");
+    exit();
 }
 
 ?>

@@ -41,8 +41,11 @@ session_start();
             </div>
          
         <h3 id="titulo_pagina"> Seus personagens </h3>
+        
         <div id="galeria">
-         
+            <?php
+            
+            ?>
         </div>
         </div>
   

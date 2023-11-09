@@ -24,26 +24,25 @@ session_start();
     </div>
 
     <div>
-        <form>
+        <form action="../Controller/mundoController.php?acao=atualizar" method="POST">
             <h3> Nome do Mundo: </h3>
-            <input type="text" name="new_name" id="new_name" required>
+            <input type="text" name="ed_name" id="ed_name" required>
             <br><br>
 
             <div class="editorTexto">
                 <h3> Informações do mundo: </h3>
-                <textarea class ="summernote" name="new_info" id="new_info"></textarea>
+                <textarea class ="summernote" name="ed_info" id="ed_info"></textarea>
             </div>
 
             <div class="editorTexto">
                 <h3> Trivias do mundo: </h3>
-                <textarea class="summernote" name="new_trivia" id="new_trivia"></textarea>
+                <textarea class="summernote" name="ed_trivia" id="ed_trivia"></textarea>
             </div>
             <br>
-
             <input type="submit" value="Salvar">
         </form>
         <br>
-        <button> Excluir ficha </button>
+        <button action="../Controller/mundoController.php?acao=deletar" method="POST"> Excluir ficha </button>
     </div>
 
     <footer>

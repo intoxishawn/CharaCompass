@@ -24,7 +24,7 @@ session_start();
     </div>
 
     <div>
-        <form>
+        <form action="../Controller/mundoController.php?acao=deletar" method="POST">
             <h3> Nome do personagem: </h3>
           <input type="text" name="nome_p" id="nome_p">
           
@@ -62,7 +62,7 @@ session_start();
             <input type="submit" value="Salvar">
         </form>
         <br>
-        <button> Excluir ficha </button>
+        <button action="../Controller/mundoController.php?acao=deletar" method="POST"> Excluir ficha </button>
     </div>
 
     <footer>

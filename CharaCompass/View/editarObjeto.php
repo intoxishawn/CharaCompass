@@ -24,21 +24,21 @@ session_start();
     </div>
 
     <div>
-        <form>
+        <form action="../Controller/objetoController.php?acao=atualizar" method="POST">
             <h3> Nome do Objeto: </h3>
-            <input type="text" name="nome_obj" id="nome_obj" required>
+            <input type="text" name="nome_edit" id="nome_edit" required>
             <br>
             <div class="editorTexto">
                 <h3> Características do Objeto: </h3>
-                <textarea class ="summernote" name="c_obj" id="c_obj"></textarea>
+                <textarea class ="summernote" name="c_edit" id="c_edit"></textarea>
             </div>
             <div class="editorTexto">
                 <h3> História do Objeto: </h3>
-                <textarea class ="summernote" name="historia_obj" id="historia_obj"></textarea>
+                <textarea class ="summernote" name="historia_edit" id="historia_edit"></textarea>
             </div>
             <div class="editorTexto">
                 <h3> Trivia do Objeto: </h3>
-                <textarea class ="summernote" name="trivia_obj" id="trivia_obj"></textarea>
+                <textarea class ="summernote" name="trivia_edit" id="trivia_edit"></textarea>
             </div>
 
             <br>
@@ -51,7 +51,7 @@ session_start();
             <input type="submit" value="Salvar">
         </form>
         <br>
-        <button> Excluir ficha </button>
+        <button  action="../Controller/objetoController.php?acao=deletar" method="POST"> Excluir ficha </button>
     </div>
 
     <footer>

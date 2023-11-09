@@ -24,7 +24,7 @@ session_start();
     </div>
 
     <div>
-        <form action="../Controller/criarPersonagem.php?acao=criar" method="POST">
+        <form action="../Controller/personagemController.php?acao=criar" method="POST">
           <h3> Nome do personagem: </h3>
           <input type="text" name="nome_p" id="nome_p">
           

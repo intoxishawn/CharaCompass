@@ -25,7 +25,7 @@ session_start();
     </div>
 
     <div>
-        <form action="../Controller/criarMundo.php?acao=criar" method="POST">
+        <form action="../Controller/mundoController.php?acao=criar" method="POST">
             <h3> Nome do Mundo: </h3>
             <input type="text" name="new_name" id="new_name" required>
             <br><br>

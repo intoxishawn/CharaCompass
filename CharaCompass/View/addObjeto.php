@@ -24,7 +24,7 @@ session_start();
     </div>
 
     <div>
-        <form action="../Controller/criarObjeto.php?acao=criar" method="POST">
+        <form action="../Controller/objetoController.php?acao=criar" method="POST">
             <h3> Nome do Objeto: </h3>
             <input type="text" name="nome_obj" id="nome_obj" required>
             <br>

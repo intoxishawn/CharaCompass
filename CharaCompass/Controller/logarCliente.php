@@ -3,7 +3,6 @@ $acao = isset($_GET['acao']) ? $_GET['acao'] : '';
 include_once '../Model/Cliente.class.php';
 
 if ($acao === 'login') {
-    
     if ($_SERVER["REQUEST_METHOD"] == "POST") { 
         if(isset($_POST['email']) || isset($_POST['senha'])) { 
                 $email = $_POST['email']; 
