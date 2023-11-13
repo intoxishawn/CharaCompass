@@ -26,10 +26,12 @@ if ($acao === 'login') {
                         exit();
                     } else { /* Senha errada*/
                         header("Location: ../View/login.php");
+                        /**/
                         exit();
                     }           
                 } else /*se o email não existe*/ {
-                    header("Location: ../View/login.php"); 
+                    header("Location: ../View/login.php");
+                    /**/
                     exit();
                 }
             }     

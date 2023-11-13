@@ -1,5 +1,16 @@
 <?php
 session_start();
+include_once '../Controller/Conexao.php';
+include_once '../Model/Mundo.class.php';
+
+$id = isset($_GET['id']) ? $_GET['id'] : null;
+
+if (!is_numeric($id) || $id <= 0) {
+    echo "ID inválido";
+    exit();
+}
+
+$mundo = Mundo::getOne($id);
 ?>
 
 <!DOCTYPE html>
@@ -25,24 +36,24 @@ session_start();
 
     <div>
         <form action="../Controller/mundoController.php?acao=atualizar" method="POST">
+            <input type="hidden" name="id" value="<?php echo $mundo['id_mundo']; ?>">
+            
             <h3> Nome do Mundo: </h3>
-            <input type="text" name="ed_name" id="ed_name" required>
+            <input type="text" name="ed_name" id="ed_name" value= "<?php echo $mundo['nome_mundo']; ?>" required>
             <br><br>
 
             <div class="editorTexto">
                 <h3> Informações do mundo: </h3>
-                <textarea class ="summernote" name="ed_info" id="ed_info"></textarea>
+                <textarea class ="summernote" name="ed_info" id="ed_info"><?php echo $mundo['info_mundo']; ?></textarea>
             </div>
 
             <div class="editorTexto">
                 <h3> Trivias do mundo: </h3>
-                <textarea class="summernote" name="ed_trivia" id="ed_trivia"></textarea>
+                <textarea class="summernote" name="ed_trivia" id="ed_trivia"><?php echo $mundo['trivia_mundo']; ?></textarea>
             </div>
             <br>
-            <input type="submit" value="Salvar">
+            <input type="submit" value="Atualizar">
         </form>
-        <br>
-        <button action="../Controller/mundoController.php?acao=deletar" method="POST"> Excluir ficha </button>
     </div>
 
     <footer>

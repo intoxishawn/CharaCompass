@@ -12,6 +12,7 @@ session_start();
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
     <script src="cadastroCodes.js"></script>
+    <link href="../View/CSS/login_cadastro.css" rel="stylesheet">
     <title> Criar Conta </title>
 </head>
 <body>

@@ -89,10 +89,9 @@
                         $_SESSION['email'] = $row['email_cliente'];
                         exit();
                     } else {
-                        echo 'Senha incorreta';
+                        exit();
                     }
                 } else {
-                    echo 'Email não encontrado';
                 }
             } catch (Exception $e) {
                 echo 'Erro: ' . $e->getMessage();

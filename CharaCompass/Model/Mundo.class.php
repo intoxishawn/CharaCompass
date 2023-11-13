@@ -209,7 +209,7 @@ class Mundo{
                         echo "<a class=\"btn btn-success btn-xs\" href=\"perfilMundo.php?id=". $linha['id_mundo'] ."\">Visualizar</a>";
                         echo "</td>";
                         echo "<td>";
-                        echo "<a class=\"btn btn-warning btn-xs\" href=\"editaNovo.php?id=". $linha['id_mundo'] ."\">Editar</a>";
+                        echo "<a class=\"btn btn-warning btn-xs\" href=\"editarMundo.php?id=". $linha['id_mundo'] ."\">Editar</a>";
                         echo "</td>";
                         echo "<td>";
                         echo "<a class=\"btn btn-danger btn-xs\"  href=\"excluiNovo.php?id=". $linha['id_mundo'] ."\">Excluir</a>";
