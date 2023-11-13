@@ -6,11 +6,100 @@ class Mundo{
 
     use Model;
 
-    private $id;
-    private $nome;
-    private $info;
-    private $trivia;
-    private $cliente_id;
+    public $id;
+    public $nome;
+    public $info;
+    public $trivia;
+    public $cliente_id;
+
+    public function __construct($id = null, $nome = null, $info = null, $trivia = null, $cliente_id = null) {        
+        $this->id = $id;
+        $this->nome = $nome;
+        $this->info = $info;
+        $this->trivia = $trivia;
+        $this->cliente_id = $cliente_id;                
+    } 
+    
+    
+    /**
+     * @return mixed
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getNome()
+    {
+        return $this->nome;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getInfo()
+    {
+        return $this->info;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getTrivia()
+    {
+        return $this->trivia;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getCliente_id()
+    {
+        return $this->cliente_id;
+    }
+
+    /**
+     * @param mixed $id
+     */
+    public function setId($id)
+    {
+        $this->id = $id;
+    }
+
+    /**
+     * @param mixed $nome
+     */
+    public function setNome($nome)
+    {
+        $this->nome = $nome;
+    }
+
+    /**
+     * @param mixed $info
+     */
+    public function setInfo($info)
+    {
+        $this->info = $info;
+    }
+
+    /**
+     * @param mixed $trivia
+     */
+    public function setTrivia($trivia)
+    {
+        $this->trivia = $trivia;
+    }
+
+    /**
+     * @param mixed $cliente_id
+     */
+    public function setCliente_id($cliente_id)
+    {
+        $this->cliente_id = $cliente_id;
+    }
 
     //get e set em trait
 
@@ -58,7 +147,7 @@ class Mundo{
             $pdo = conexao();
             $lista = [];
             foreach ($pdo->query('SELECT * FROM mundo') as $linha){
-                $mundo = new Mundo();
+                $mundo = new Mundo($id, $nome, $info, $trivia, $cliente_id);
                 $mundo-> setId($linha['id_mundo']);
                 $mundo->setNome($linha['nome_mundo']);
                 $mundo->setInfo($linha['info_mundo']);
@@ -78,6 +167,66 @@ class Mundo{
     
             return $mundo;
         }
+        
+        function listarMundo() {
+            try {
+                $pdo = conexao();
+                $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        
+                $stmt = $pdo->prepare("SELECT id_mundo, nome_mundo, info_mundo, trivia_mundo, cliente_id FROM mundo ORDER BY nome_mundo");
+                $stmt->execute();
+        
+                $linha = $stmt->fetch(PDO::FETCH_ASSOC);
+        
+                if (!$linha) {
+                    echo "Você ainda não criou nada... Adicione um mundo!";
+                } else {
+                    echo "<div id=\"list\" class=\"row\">";
+                    echo "<div class=\"table-responsive col-md-12\">";
+                    echo "<table border=1 class=\"table table-striped\" cellspacing=\"0\" cellpadding=\"0\">";
+                    echo "<thead>";
+                    echo "<tr>";
+                    echo "<th>id_mundo</th>";
+                    echo "<th>nome_mundo</th>";
+                    echo "<th>info_mundo</th>";
+                    echo "<th>trivia_mundo</th>";
+                    echo "<th>cliente_id</th>";
+                    echo "<th class=\"actions\">Ações</th>";
+                    echo "<th class=\"actions\">Ações</th>";
+                    echo "<th class=\"actions\">Ações</th>";
+                    echo "</tr>";
+                    echo "</thead>";
+                    echo "<tbody>";
+        
+                    do {
+                        echo "<tr>";
+                        echo "<td align=left>". $linha['id_mundo'] ."</td>";
+                        echo "<td align=left>". $linha['nome_mundo'] ."</td>";
+                        echo "<td align=left>". $linha['info_mundo'] ."</td>";
+                        echo "<td align=left>". $linha['trivia_mundo'] ."</td>";
+                        echo "<td align=left>". $linha['cliente_id'] ."</td>";
+                        echo "<td>";
+                        echo "<a class=\"btn btn-success btn-xs\" href=\"perfilMundo.php?id=". $linha['id_mundo'] ."\">Visualizar</a>";
+                        echo "</td>";
+                        echo "<td>";
+                        echo "<a class=\"btn btn-warning btn-xs\" href=\"editaNovo.php?id=". $linha['id_mundo'] ."\">Editar</a>";
+                        echo "</td>";
+                        echo "<td>";
+                        echo "<a class=\"btn btn-danger btn-xs\"  href=\"excluiNovo.php?id=". $linha['id_mundo'] ."\">Excluir</a>";
+                        echo "</td>";
+                        echo "</tr>";
+                    } while ($linha = $stmt->fetch(PDO::FETCH_ASSOC));
+        
+                    echo "</tbody>";
+                    echo "</table>";
+                    echo "</div>";
+                    echo "</div>";
+                }
+            } catch(PDOException $e) {
+                echo 'Erro na operação de listar mundo';
+            }
+        }
+        
 
 }
 ?>

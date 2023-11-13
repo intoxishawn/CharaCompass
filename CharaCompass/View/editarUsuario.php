@@ -33,11 +33,11 @@ session_start();
               <div class="conteudo">
                 <label> Nome de Usuário</label>
                 <br>
-                <input type="text" class="bio" value="<?php echo $_SESSION['nome']?>">
+                <input type="text" class="bio">
                 <br><br><br>
                 <label> Biografia </label>
                 <br>
-                <textarea rows="4" cols="50" class="bio"></textarea>
+                <textarea rows="4" cols="50" class="bio" ></textarea>
               </div>
             </div>
             <div id="menu_perfil">

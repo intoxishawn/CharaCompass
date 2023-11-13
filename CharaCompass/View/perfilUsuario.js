@@ -23,5 +23,5 @@ function abreEditar(){
 }
 
 function desconectar(){
-    window.location.href = "index.html";
+window.location.href = "../Controller/logout.php";
 }

@@ -21,7 +21,7 @@ if ($acao === 'login') {
                         session_start(); 
                         session_regenerate_id(); 
                         $_SESSION['id'] = $usuario['id_cliente']; 
-                        $_SESSION['cliente'] = $usuario['nome_cliente'];
+                        $_SESSION['nome'] = $usuario['nome_cliente']; 
                         header("Location: ../View/inicialUsuario.php");
                         exit();
                     } else { /* Senha errada*/

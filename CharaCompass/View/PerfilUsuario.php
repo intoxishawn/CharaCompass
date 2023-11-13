@@ -31,8 +31,7 @@ session_start();
           <div class="explicacao01">
               <img id="pfp" src="Imagens/avatarplaceholder.png" alt="Imagem do CharaCompass"></a>
               <div class="conteudo">
-                  <p id="username"> <?php echo $_SESSION['nome']?></p>
-                  
+                  <p id="username"><?php echo $_SESSION['nome'] ?></p>
                   <p>Biografia</p>
               </div>
             </div>

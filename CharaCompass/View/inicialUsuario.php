@@ -31,12 +31,12 @@ session_start();
         <div class="explicacao01">
             <a onclick="abrePerfilUsuario()"><img id="pfp" src="Imagens/avatarplaceholder.png" alt="Foto de perfil"></a>
             <div class="conteudo">
-                <p id="username"> Bem vindo(a) <?php echo $_SESSION['nome']; ?></p>
+            <p id="username"> Bem vindo(a) <?php echo $_SESSION['nome'] ?></p>
                 <p>Biografia</p>
             </div>
         </div>
        
-      <h3 id="titulo_pagina"> Suas imagens </h3>
+      <h3 id="titulo_pagina"> Suas Criações </h3>
       <div id="galeria">
         
       </div>

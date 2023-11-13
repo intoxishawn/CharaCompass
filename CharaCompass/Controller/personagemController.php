@@ -28,7 +28,7 @@ if ($acao === 'criar'){
     $personagem->update();
 
     header("Location: ../View/index.html");
-    exit():
+    exit();
 
 } else if($acao === 'deletar'){
     Personagem::delete($_REQUEST['id']);

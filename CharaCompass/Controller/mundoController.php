@@ -12,7 +12,7 @@ if ($acao === 'criar') {
     $mundo->__set("trivia", $_POST['new_trivia']);
     $mundo->__set("cliente_id", $clienteId);
     $mundo->save();
-    header("Location: ../View/index.html");
+    header("Location: ../View/mundosUsuario.php");
     exit();
 } else if($acao === 'atualizar'){
     $mundo = new Mundo();

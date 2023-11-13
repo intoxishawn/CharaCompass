@@ -74,18 +74,19 @@
             } return $lista;
         }
 
-        public function login(){
+        public function login() {
             $pdo = conexao();
-            try{
+            try {
                 $stmt = $pdo->prepare('SELECT id_cliente, email_cliente, senha_cliente FROM CLIENTE WHERE email_cliente = :email');
                 $stmt->execute([
                     ':email' => $this->email,
                 ]);
-                
-                if ($row = $stmt->fetch(PDO::FETCH_ASSOC)){
-                    if (password_verify($this->senha, $row['senha_cliente'])){
-                        $_SESSION ['cliente'] = $row['id_cliente'];
-                        $_SESSION ['email'] = $row['email_cliente'];
+    
+                if ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+                    if (password_verify($this->senha, $row['senha_cliente'])) {
+                        $_SESSION['id'] = $row['id_cliente'];
+                        $_SESSION['nome'] = $row['nome_cliente'];
+                        $_SESSION['email'] = $row['email_cliente'];
                         exit();
                     } else {
                         echo 'Senha incorreta';
@@ -93,7 +94,7 @@
                 } else {
                     echo 'Email não encontrado';
                 }
-            } catch(Exception $e){
+            } catch (Exception $e) {
                 echo 'Erro: ' . $e->getMessage();
             }
         }

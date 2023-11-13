@@ -1,5 +1,6 @@
 <?php
 session_start();
+include_once('../Model/mundo.class.php');
 ?>
 
 <!DOCTYPE html>
@@ -31,7 +32,7 @@ session_start();
         <div class="explicacao01">
             <a onclick="abrePerfilUsuario()"><img id="pfp" src="Imagens/avatarplaceholder.png" alt="Foto de perfil"></a>
             <div class="conteudo">
-                <p id="username"> Nome do Usuário</p>
+                <p id="username"><?php echo $_SESSION['nome'] ?></p>
                 <p>Biografia</p>
             </div>
         </div>
@@ -42,6 +43,17 @@ session_start();
        
       <h3 id="titulo_pagina"> Seus Mundos </h3>
       <div id="galeria">
+      <?php
+      $id = 0;
+      $nome = "";
+      $info = "";
+      $trivia = "";
+      $cliente_id = "";
+      $mundo = new Mundo($id, $nome, $info, $trivia, $cliente_id);
+      $mundo->listarMundo();
+      
+      ?>
+      </div>
         
       </div>
       </div>
