@@ -1,5 +1,9 @@
 <?php
-session_start();
+if(isSet($_SESSION)){
+    session_start();
+}else if(!isSet($_SESSION)){
+    header("Location: login.php");
+}
 
 include_once '../Controller/Conexao.php';
 include_once '../Model/Objeto.class.php';

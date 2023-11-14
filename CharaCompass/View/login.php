@@ -1,5 +1,5 @@
 <?php
-session_start();
+
 include_once '../Model/Cliente.class.php';
 
 if(isset($_POST['email']) || isset($_POST['senha'])){
