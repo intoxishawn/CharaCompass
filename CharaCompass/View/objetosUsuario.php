@@ -1,5 +1,6 @@
 <?php
 session_start();
+include_once('../Model/objeto.class.php');
 ?>
 
 <!DOCTYPE html>
@@ -40,7 +41,25 @@ session_start();
             </div>
       <h3 id="titulo_pagina"> Seus objetos </h3>
       <div id="galeria">
-       
+      <?php
+      $id = 0;
+      $nome = "";
+      $caracteristicas = "";
+      $historia = "";
+      $trivia = "";
+      $cliente_id = "";
+      $objeto = new Objeto($id, $nome, $caracteristicas, $historia, $trivia, $cliente_id);
+      $objeto->listarObjeto();
+
+      echo '<script>
+        function confirmarExclusao(idObjeto) {
+        var confirmacao = confirm("Tem certeza que deseja excluir este Objeto?");
+        if (confirmacao) {
+            window.location.href ="../Controller/objetoController.php?acao=deletar&id=" + idObjeto;
+        }
+    }
+</script>';
+      ?>
       </div>
       </div>
 

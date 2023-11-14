@@ -1,5 +1,17 @@
 <?php
 session_start();
+
+include_once '../Controller/Conexao.php';
+include_once '../Model/Objeto.class.php';
+
+$id = isset($_GET['id']) ? $_GET['id'] : null;
+
+if (!is_numeric($id) || $id <= 0) {
+    echo "ID inválido";
+    exit();
+}
+
+$objeto = Objeto::getOne($id);
 ?>
 
 <!DOCTYPE html>
@@ -25,20 +37,22 @@ session_start();
 
     <div>
         <form action="../Controller/objetoController.php?acao=atualizar" method="POST">
+        <input type="hidden" name="id" value="<?php echo $objeto['id_objeto']; ?>">
+        
             <h3> Nome do Objeto: </h3>
-            <input type="text" name="nome_edit" id="nome_edit" required>
+            <input type="text" name="nome_edit" id="nome_edit" value="<?php echo $objeto['nome_objeto']; ?>" required>
             <br>
             <div class="editorTexto">
                 <h3> Características do Objeto: </h3>
-                <textarea class ="summernote" name="c_edit" id="c_edit"></textarea>
+                <textarea class ="summernote" name="c_edit" id="c_edit"><?php echo $objeto['caracteristicas']; ?></textarea>
             </div>
             <div class="editorTexto">
                 <h3> História do Objeto: </h3>
-                <textarea class ="summernote" name="historia_edit" id="historia_edit"></textarea>
+                <textarea class ="summernote" name="historia_edit" id="historia_edit"><?php echo $objeto['historia_objeto']; ?></textarea>
             </div>
             <div class="editorTexto">
                 <h3> Trivia do Objeto: </h3>
-                <textarea class ="summernote" name="trivia_edit" id="trivia_edit"></textarea>
+                <textarea class ="summernote" name="trivia_edit" id="trivia_edit"><?php echo $objeto['trivia_objeto']; ?></textarea>
             </div>
 
             <br>
@@ -48,10 +62,9 @@ session_start();
 
             <br><br><br>
             
-            <input type="submit" value="Salvar">
+            <input type="submit" value="Atualizar">
         </form>
         <br>
-        <button  action="../Controller/objetoController.php?acao=deletar" method="POST"> Excluir ficha </button>
     </div>
 
     <footer>

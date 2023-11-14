@@ -14,19 +14,23 @@ if ($acao === 'criar') {
     $objeto->__set("cliente_id", $clienteId);
     $objeto->save();
     
-    header("Location: ../View/index.html");
+    header("Location: ../View/objetosUsuario.php");
     exit();
 } else if($acao === 'atualizar'){
+    include_once '../Model/Objeto.class.php';
     $objeto = new Objeto();
     $objeto->__set("nome", $_POST['nome_edit']);
     $objeto->__set("caracteristicas", $_POST['c_edit']);
     $objeto->__set("historia", $_POST['historia_edit']);
     $objeto->__set("trivia", $_POST['trivia_edit']);
+    $objeto->__set("id", $_POST['id']);
     $objeto->update();
-    header("Location: ../View/index.html");
+    header("Location: ../View/objetosUsuario.php");
     exit();
-} else if($acao === 'deletar'){
+}else if($acao === 'deletar'){
+    include_once '../Model/Objeto.class.php';
     Objeto::delete($_REQUEST['id']);
-    header("Location: ../View/index.html");
+    header("Location: ../View/objetosUsuario.php");
+    exit();
 }
 ?>
