@@ -51,17 +51,8 @@ if(isset($_POST['email']) || isset($_POST['senha'])){
                 <br>
                 <hr class="hr_customizada">
             </form>
-            <div>
-                <div id="recuperarsenha01">
-                    <p> Esqueceu a senha?</p>
-                    <br><br>
-                    <button onclick="AbreRecuperarSenha()" id="botao01"> Recuperar senha </button>
             </div>
-            </div>
-        </div>
-            <br><br>
-            
-            
+        </div>      
     </div>
         <footer>
         <h4> CharaCompass - 2023 </h4>

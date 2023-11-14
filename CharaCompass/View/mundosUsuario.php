@@ -51,7 +51,15 @@ include_once('../Model/mundo.class.php');
       $cliente_id = "";
       $mundo = new Mundo($id, $nome, $info, $trivia, $cliente_id);
       $mundo->listarMundo();
-      
+
+      echo '<script>
+        function confirmarExclusao(idMundo) {
+        var confirmacao = confirm("Tem certeza que deseja excluir este mundo?");
+        if (confirmacao) {
+            window.location.href ="../Controller/mundoController.php?acao=deletar&id=" + idMundo;
+        }
+    }
+</script>';
       ?>
       </div>
         

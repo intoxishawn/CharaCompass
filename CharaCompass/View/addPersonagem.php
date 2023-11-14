@@ -48,11 +48,6 @@ session_start();
                 <textarea class ="summernote" name="trivia_p" id="trivia_p"></textarea>
             </div>
 
-            <br>
-
-            <h3> Como seu personagem soaria?</h3>
-            <input type="file" accept="audio/mp3">
-
             <br><br>
 
             <h3> Como seu personagem é? </h3>

@@ -139,9 +139,10 @@ class Mundo{
         
         public static function delete($id){
             $pdo = conexao();
-            $stmt = $pdo->prepare('DELETE FROM mundo WHERE id = :id');
-            $stmt -> execute([':id'=>$id]);
+            $stmt = $pdo->prepare('DELETE FROM mundo WHERE id_mundo = :id');
+            $stmt->execute([':id' => $id]);
         }
+
 
         public static function getAll(){
             $pdo = conexao();
@@ -179,7 +180,9 @@ class Mundo{
                 $linha = $stmt->fetch(PDO::FETCH_ASSOC);
         
                 if (!$linha) {
-                    echo "Você ainda não criou nada... Adicione um mundo!";
+                    echo '<object type="image/svg+xml" data="../View/Imagens/chicken.svg" width="100" height="100"></object>';
+                    echo '<br>';
+                    echo "Nada aqui além de nós e galinhas!";
                 } else {
                     echo "<div id=\"list\" class=\"row\">";
                     echo "<div class=\"table-responsive col-md-12\">";
@@ -212,7 +215,7 @@ class Mundo{
                         echo "<a class=\"btn btn-warning btn-xs\" href=\"editarMundo.php?id=". $linha['id_mundo'] ."\">Editar</a>";
                         echo "</td>";
                         echo "<td>";
-                        echo "<a class=\"btn btn-danger btn-xs\"  href=\"excluiNovo.php?id=". $linha['id_mundo'] ."\">Excluir</a>";
+                        echo '<button class="btn btn-danger btn-xs" onclick="confirmarExclusao(' . $linha['id_mundo'] . ')">Excluir</button>';
                         echo "</td>";
                         echo "</tr>";
                     } while ($linha = $stmt->fetch(PDO::FETCH_ASSOC));
@@ -227,6 +230,5 @@ class Mundo{
             }
         }
         
-
-}
+        }
 ?>
