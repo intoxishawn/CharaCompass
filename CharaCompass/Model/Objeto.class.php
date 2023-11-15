@@ -167,21 +167,6 @@ class Objeto{
         $stmt -> execute([':id'=>$id]);
     }
 
-    public static function getAll(){
-        $pdo = conexao();
-        $lista = [];
-        foreach ($pdo->query('SELECT * FROM objeto') as $linha){
-            $objeto = new Objeto();
-            $objeto-> setId($linha['id_objeto']);
-            $objeto->setNome($linha['nome_objeto']);
-            $objeto->setCaracteristicas($linha['caracteristicas']);
-            $objeto->setHistoria($linha['historia_objeto']);
-            $objeto->setTrivia($linha['trivia_objeto']);
-
-            $lista[] = $objeto;
-        } return $lista;
-    }
-
     public static function getOne($id){
         $pdo = conexao();
         $stmt = $pdo->prepare('SELECT * FROM objeto WHERE id_objeto = :id');
@@ -200,7 +185,7 @@ class Objeto{
             $pdo = conexao();
             $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     
-            $stmt = $pdo->prepare("SELECT id_objeto, nome_objeto, caracteristicas, historia_objeto, trivia_objeto, cliente_id FROM objeto ORDER BY nome_objeto");
+            $stmt = $pdo->prepare("SELECT * FROM objeto ORDER BY nome_objeto");
             $stmt->execute();
     
             $linha = $stmt->fetch(PDO::FETCH_ASSOC);

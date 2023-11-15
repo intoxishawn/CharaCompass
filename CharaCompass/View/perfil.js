@@ -6,10 +6,6 @@ function abreObjeto(){
     window.location.href = "objetosUsuario.php";
 }
 
-function abreGaleria(){
-    window.location.href = "inicialUsuario.php";
-}
-
-function verImagem(){
-    window.location.href = "verImagem.php";
+function abrePersonagens(){
+    window.location.href = "personagensUsuario.php";
 }

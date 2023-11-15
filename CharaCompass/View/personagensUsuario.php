@@ -58,6 +58,8 @@ include_once "../Model/Personagem.class.php";
       $id = 0;
       $nome = "";
       $info = "";
+      $personalidade = "";
+      $historia = "";
       $trivia = "";
       $cliente_id = "";
       $personagem = new Personagem($id, $nome, $info, $personalidade, $historia, $trivia, $cliente_id);

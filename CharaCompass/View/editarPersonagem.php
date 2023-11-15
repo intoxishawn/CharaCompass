@@ -8,6 +8,18 @@ if (session_status() === PHP_SESSION_ACTIVE) {
     exit(); // Encerrar o script após o redirecionamento
 }
 
+include_once '../Controller/Conexao.php';
+include_once '../Model/Personagem.class.php';
+
+$id = isset($_GET['id']) ? $_GET['id'] : null;
+
+if (!is_numeric($id) || $id <= 0) {
+echo "ID inválido";
+exit();
+}
+
+$personagem = Personagem::getOne($id);
+
 ?>
 
 <!DOCTYPE html>
@@ -33,34 +45,31 @@ if (session_status() === PHP_SESSION_ACTIVE) {
     </div>
 
     <div>
-        <form action="../Controller/mundoController.php?acao=deletar" method="POST">
+        <form action="../Controller/personagemController.php?acao=atualizar" method="POST">
+            <input type="hidden" name="id_personagem" value="<?php echo $personagem['id_personagem']; ?>">
+        
             <h3> Nome do personagem: </h3>
-          <input type="text" name="nome_p" id="nome_p">
+            <input type="text" name="nome_edit" id="nome_edit" value= "<?php echo $personagem['nome_personagem']; ?>">
           
             <div class="editorTexto">
                 <h3> Informações do personagem: </h3>
-                <textarea class ="summernote" name="info_p" id="info_p"></textarea>
+                <textarea class ="summernote" name="info_edit" id="info_edit"><?php echo $personagem['info_personagem']; ?></textarea>
             </div>
 
             <div class="editorTexto">
                 <h3> Personalidade: </h3>
-                <textarea class ="summernote" name="personalidade" id="personalidade"></textarea>
+                <textarea class ="summernote" name="personalidade_edit" id="personalidade_edit"><?php echo $personagem['personalidade']; ?></textarea>
             </div>
 
             <div class="editorTexto">
                 <h3> História do personagem: </h3>
-                <textarea class ="summernote" name="historia_p" id="historia_p"></textarea>
+                <textarea class ="summernote" name="historia_edit" id="historia_edit"><?php echo $personagem['historia']; ?></textarea>
             </div>
 
             <div class="editorTexto">
                 <h3> Trivia sobre o personagem: </h3>
-                <textarea class ="summernote" name="trivia_p" id="trivia_p"></textarea>
+                <textarea class ="summernote" name="trivia_edit" id="trivia_edit"><?php echo $personagem['trivia_personagem']; ?></textarea>
             </div>
-
-            <br>
-
-            <h3> Como seu personagem soaria?</h3>
-            <input type="file" accept="audio/mp3">
 
             <br><br>
 
@@ -70,8 +79,6 @@ if (session_status() === PHP_SESSION_ACTIVE) {
             <br><br><br>
             <input type="submit" value="Salvar">
         </form>
-        <br>
-        <button action="../Controller/mundoController.php?acao=deletar" method="POST"> Excluir ficha </button>
     </div>
 
     <footer>

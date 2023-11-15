@@ -143,21 +143,6 @@ class Mundo{
             $stmt->execute([':id' => $id]);
         }
 
-
-        public static function getAll(){
-            $pdo = conexao();
-            $lista = [];
-            foreach ($pdo->query('SELECT * FROM mundo') as $linha){
-                $mundo = new Mundo($id, $nome, $info, $trivia, $cliente_id);
-                $mundo-> setId($linha['id_mundo']);
-                $mundo->setNome($linha['nome_mundo']);
-                $mundo->setInfo($linha['info_mundo']);
-                $mundo->setTrivia($linha['trivia_mundo']);
-
-                $lista[] = $mundo;
-            } return $lista;
-        }
-
         public static function getOne($id){
             $pdo = conexao();
             $stmt = $pdo->prepare('SELECT * FROM mundo WHERE id_mundo = :id');
@@ -174,7 +159,7 @@ class Mundo{
                 $pdo = conexao();
                 $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         
-                $stmt = $pdo->prepare("SELECT id_mundo, nome_mundo, info_mundo, trivia_mundo, cliente_id FROM mundo ORDER BY nome_mundo");
+                $stmt = $pdo->prepare("SELECT * FROM mundo ORDER BY nome_mundo");
                 $stmt->execute();
         
                 $linha = $stmt->fetch(PDO::FETCH_ASSOC);

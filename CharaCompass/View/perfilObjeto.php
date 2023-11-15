@@ -60,6 +60,7 @@ $criacao = Objeto::getOne($id);
             echo "<p>" . $criacao['trivia_objeto'] . "</p>";
             echo "</div>";
         } else {
+            echo "Objeto não encontrado.";
             }
         ?>
     </div>

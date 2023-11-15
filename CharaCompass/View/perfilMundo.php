@@ -38,6 +38,7 @@ $criacao = Mundo::getOne($id);
         <button class="nav_button" onclick="abreMundo()"> Voltar </button>
     </nav>
 
+    <div>
     <?php
         // Verificando se a criação foi encontrada
         if ($criacao) {
@@ -55,7 +56,7 @@ $criacao = Mundo::getOne($id);
             echo "<p>" . $criacao['trivia_mundo'] . "</p>";
             echo "</div>";
         } else {
-            echo "Criação não encontrada.";
+            echo "Mundo não encontrado.";
         }
         ?>
     </div>
