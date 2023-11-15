@@ -1,9 +1,9 @@
 <?php
-
-if(isSet($_SESSION)){
-    session_start();
-}else if(!isSet($_SESSION)){
+session_start();
+if (!isset($_SESSION['id']) || !isset($_SESSION['nome'])) {
+    // Redireciona para a página de login se a sessão não estiver ativa
     header("Location: login.php");
+    exit(); // Termina o script para garantir que a página não seja processada mais adiante
 }
 
 ?>
@@ -18,6 +18,7 @@ if(isSet($_SESSION)){
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
     <script src="inicial_usuario.js"></script>
+    <link rel="icon" type="image/x-icon" href="../View/Imagens/favicon-32x32.png">
     <title>Minha galeria</title>
 </head>
 <body>

@@ -1,9 +1,11 @@
 <?php
-
-if(isSet($_SESSION)){
-    session_start();
-}else if(!isSet($_SESSION)){
+session_start();
+if (session_status() === PHP_SESSION_ACTIVE) {
+    // Sessão está ativa, o usuário está logado
+} else {
+    // Sessão não está ativa, redirecione para a página de login
     header("Location: login.php");
+    exit(); // Encerrar o script após o redirecionamento
 }
 
 include_once('../Model/objeto.class.php');
@@ -19,6 +21,7 @@ include_once('../Model/objeto.class.php');
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
     <script src="inicialCodes.js"></script>
+    <link rel="icon" type="image/x-icon" href="../View/Imagens/favicon-32x32.png">
     <title></title>
 </head>
 <body>

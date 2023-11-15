@@ -19,6 +19,7 @@ if ($acao === 'criar'){
     exit();
     
 }  else if($acao === 'atualizar'){
+    include_once '../Model/Personagem.class.php';
     $personagem = new Personagem();
     $personagem->__set("nome", $_POST['nome_p']);
     $personagem->__set("info", $_POST['info_p']);
@@ -31,6 +32,7 @@ if ($acao === 'criar'){
     exit();
 
 } else if($acao === 'deletar'){
+    include_once '../Model/Personagem.class.php';
     Personagem::delete($_REQUEST['id']);
     header("Location: ../View/index.html");
     exit();

@@ -13,6 +13,7 @@ session_start();
     <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
     <script src="cadastroCodes.js"></script>
     <link href="../View/CSS/login_cadastro.css" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="../View/Imagens/favicon-32x32.png">
     <title> Criar Conta </title>
 </head>
 <body>

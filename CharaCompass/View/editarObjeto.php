@@ -1,10 +1,11 @@
 <?php
-
-
-if(isSet($_SESSION)){
-    session_start();
-}else if(!isSet($_SESSION)){
+session_start();
+if (session_status() === PHP_SESSION_ACTIVE) {
+    // Sessão está ativa, o usuário está logado
+} else {
+    // Sessão não está ativa, redirecione para a página de login
     header("Location: login.php");
+    exit(); // Encerrar o script após o redirecionamento
 }
 
 include_once '../Controller/Conexao.php';
@@ -29,6 +30,7 @@ $objeto = Objeto::getOne($id);
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
     <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
+    <link rel="icon" type="image/x-icon" href="../View/Imagens/favicon-32x32.png">
     <title>Edite seu objeto</title>
 </head>
 <body>

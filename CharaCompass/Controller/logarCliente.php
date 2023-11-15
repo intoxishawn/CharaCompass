@@ -4,7 +4,7 @@ include_once '../Model/Cliente.class.php';
 
 if ($acao === 'login') {
     if ($_SERVER["REQUEST_METHOD"] == "POST") { 
-        if(isset($_POST['email']) || isset($_POST['senha'])) { 
+        if (!empty($_POST['email']) && !empty($_POST['senha']))  { 
                 $email = $_POST['email']; 
                 $pdo = conexao(); 
                 $query = "SELECT * FROM cliente where email_cliente = :email limit 1 "; 
@@ -23,20 +23,20 @@ if ($acao === 'login') {
                         $_SESSION['id'] = $usuario['id_cliente']; 
                         $_SESSION['nome'] = $usuario['nome_cliente']; 
                         header("Location: ../View/inicialUsuario.php");
-                        exit();
                     } else { /* Senha errada*/
                         header("Location: ../View/login.php");
-                        /**/
+                        echo "Senha incorreta";
                         exit();
                     }           
                 } else /*se o email não existe*/ {
                     header("Location: ../View/login.php");
-                    /**/
+                    echo "Usuário não encontrado";
                     exit();
                 }
             }     
         } else { 
             header("Location: ../View/login.php");
+            echo "outro erro";
             exit();
         }
     }

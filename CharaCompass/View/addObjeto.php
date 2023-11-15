@@ -1,10 +1,11 @@
 <?php
-
-if(isSet($_SESSION)){
-    session_start();
-}else if(!isSet($_SESSION)){
+session_start();
+if (!isset($_SESSION['id']) || !isset($_SESSION['nome'])) {
+    // Redireciona para a página de login se a sessão não estiver ativa
     header("Location: login.php");
+    exit(); // Termina o script para garantir que a página não seja processada mais adiante
 }
+
 
 ?>
 
@@ -17,6 +18,7 @@ if(isSet($_SESSION)){
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
     <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
+    <link rel="icon" type="image/x-icon" href="../View/Imagens/favicon-32x32.png">
     <title>Crie um objeto</title>
 </head>
 <body>

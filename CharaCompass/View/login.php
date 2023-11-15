@@ -1,4 +1,5 @@
 <?php
+session_start();
 
 include_once '../Model/Cliente.class.php';
 
@@ -20,6 +21,7 @@ if(isset($_POST['email']) || isset($_POST['senha'])){
     <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
     <script src="loginCodes.js"></script>
     <link href="../View/CSS/login_cadastro.css" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="../View/Imagens/favicon-32x32.png">
     <title> Acessar a conta </title>
 </head>
 <body>

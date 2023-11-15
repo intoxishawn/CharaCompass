@@ -87,11 +87,11 @@
                         $_SESSION['id'] = $row['id_cliente'];
                         $_SESSION['nome'] = $row['nome_cliente'];
                         $_SESSION['email'] = $row['email_cliente'];
-                        exit();
                     } else {
                         exit();
                     }
                 } else {
+                    exit();
                 }
             } catch (Exception $e) {
                 echo 'Erro: ' . $e->getMessage();
