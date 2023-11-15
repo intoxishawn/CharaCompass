@@ -167,7 +167,7 @@ class Personagem{
 
         move_uploaded_file($img['tmp_name'], $imgPath);
 
-        return 'uploads/' .$imgName;
+        return 'Uploads/' .$imgName;
     }
 
     //save
