@@ -65,6 +65,8 @@ if (session_status() === PHP_SESSION_ACTIVE) {
             <br><br><br>
             <input type="submit" value="Criar Ficha!">
         </form>
+        <br><br>
+        <button class="voltar" onclick="cancelarCriacao()"> Cancelar </button>
     </div>
 
     <footer>
@@ -85,6 +87,13 @@ if (session_status() === PHP_SESSION_ACTIVE) {
           ['insert', ['link']]
         ]
       });
+
+      function cancelarCriacao() {
+        var confirmacao = confirm("Tem certeza que deseja voltar? Sua criação não será salva!");
+        if (confirmacao) {
+            window.location.href ="personagensUsuario.php";
+        }
+    }
     </script>
 </body>
 </html>

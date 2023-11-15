@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 03-Nov-2023 às 04:49
+-- Tempo de geração: 15-Nov-2023 às 21:59
 -- Versão do servidor: 10.4.27-MariaDB
 -- versão do PHP: 8.2.0
 
@@ -24,19 +24,6 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `audio`
---
-
-CREATE TABLE `audio` (
-  `id_audio` int(255) NOT NULL,
-  `caminho_server_audio` varchar(255) NOT NULL,
-  `cliente_id` int(255) NOT NULL,
-  `personagem_id` int(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
-
--- --------------------------------------------------------
-
---
 -- Estrutura da tabela `cliente`
 --
 
@@ -45,54 +32,17 @@ CREATE TABLE `cliente` (
   `nome_cliente` varchar(50) NOT NULL,
   `email_cliente` varchar(255) NOT NULL,
   `senha_cliente` varchar(255) NOT NULL,
-  `biografia_cliente` text DEFAULT NULL,
   `pfp_caminho` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
--- --------------------------------------------------------
-
 --
--- Estrutura da tabela `imagem`
+-- Extraindo dados da tabela `cliente`
 --
 
-CREATE TABLE `imagem` (
-  `id_imagem` int(255) NOT NULL,
-  `caminho_imagem` varchar(255) NOT NULL,
-  `cliente_id` int(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
-
--- --------------------------------------------------------
-
---
--- Estrutura da tabela `imagem_mundo`
---
-
-CREATE TABLE `imagem_mundo` (
-  `mundo_id` int(255) NOT NULL,
-  `imagem_id` int(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
-
--- --------------------------------------------------------
-
---
--- Estrutura da tabela `imagem_objeto`
---
-
-CREATE TABLE `imagem_objeto` (
-  `imagem_id` int(255) NOT NULL,
-  `objeto_id` int(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
-
--- --------------------------------------------------------
-
---
--- Estrutura da tabela `imagem_personagem`
---
-
-CREATE TABLE `imagem_personagem` (
-  `imagem_id` int(255) NOT NULL,
-  `personagem_id` int(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+INSERT INTO `cliente` (`id_cliente`, `nome_cliente`, `email_cliente`, `senha_cliente`, `pfp_caminho`) VALUES
+(11, 'intoxishawn', 'nicolini.larissa@gmail.com', '$2y$10$CpLrFEKNXyzF/pLoTnfxr.OUfyIXOcEPj30Ax4vTgIf.9m/miJXEK', NULL),
+(12, 'caraca', 'waltermorais7@gmail.com', '$2y$10$0FYC167BGywQQ5PIpCEa6Ocrvr7bI3zqvOdFVnN./O62R7qABKjdi', NULL),
+(13, 'pinto', 'pinto@gmail.com', '$2y$10$JQTip3tKUpC9i8LfqwvJJej3DJlR5Lo0HT707PRonVPv7/poHGS1e', NULL);
 
 -- --------------------------------------------------------
 
@@ -105,8 +55,16 @@ CREATE TABLE `mundo` (
   `nome_mundo` varchar(255) NOT NULL,
   `info_mundo` text DEFAULT NULL,
   `trivia_mundo` text DEFAULT NULL,
-  `cliente_id` int(255) NOT NULL
+  `cliente_id` int(255) NOT NULL,
+  `imagem` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+--
+-- Extraindo dados da tabela `mundo`
+--
+
+INSERT INTO `mundo` (`id_mundo`, `nome_mundo`, `info_mundo`, `trivia_mundo`, `cliente_id`, `imagem`) VALUES
+(8, 'Mundo rosa', '70% do mundo é agua rosa e 30% é terra azul<br>', 'Tem peixes verdes<br>', 12, NULL);
 
 -- --------------------------------------------------------
 
@@ -120,8 +78,16 @@ CREATE TABLE `objeto` (
   `caracteristicas` text DEFAULT NULL,
   `historia_objeto` text DEFAULT NULL,
   `trivia_objeto` text DEFAULT NULL,
-  `cliente_id` int(255) NOT NULL
+  `cliente_id` int(255) NOT NULL,
+  `anexo` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+--
+-- Extraindo dados da tabela `objeto`
+--
+
+INSERT INTO `objeto` (`id_objeto`, `nome_objeto`, `caracteristicas`, `historia_objeto`, `trivia_objeto`, `cliente_id`, `anexo`) VALUES
+(7, 'espada de gelo', 'Ela é grande e pesa 4 kg<br>', 'Ela foi esculpida para defender um povo da groelandia<br>', 'Ela não pode sair da Groelândia<br>', 13, NULL);
 
 -- --------------------------------------------------------
 
@@ -136,54 +102,26 @@ CREATE TABLE `personagem` (
   `personalidade` text DEFAULT NULL,
   `historia` text DEFAULT NULL,
   `trivia_personagem` text DEFAULT NULL,
-  `cliente_id` int(255) NOT NULL
+  `cliente_id` int(255) NOT NULL,
+  `imagem` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+--
+-- Extraindo dados da tabela `personagem`
+--
+
+INSERT INTO `personagem` (`id_personagem`, `nome_personagem`, `info_personagem`, `personalidade`, `historia`, `trivia_personagem`, `cliente_id`, `imagem`) VALUES
+(5, 'Henry Magnolium', 'Henry é um incubus nascido de um humano com uma succubus.<br>', 'Medroso e paranóico, porém muito otimista com o seu relacionamento com John<br>', 'Henry fugiu de sua terra natal após se envolver com um anjo.<br>', 'Henry tem 1,65m e pesa 45kg<br>', 11, NULL);
 
 --
 -- Índices para tabelas despejadas
 --
 
 --
--- Índices para tabela `audio`
---
-ALTER TABLE `audio`
-  ADD PRIMARY KEY (`id_audio`),
-  ADD KEY `cliente_id` (`cliente_id`),
-  ADD KEY `personagem_id` (`personagem_id`);
-
---
 -- Índices para tabela `cliente`
 --
 ALTER TABLE `cliente`
   ADD PRIMARY KEY (`id_cliente`);
-
---
--- Índices para tabela `imagem`
---
-ALTER TABLE `imagem`
-  ADD PRIMARY KEY (`id_imagem`),
-  ADD KEY `fk_cliente_imagem` (`cliente_id`);
-
---
--- Índices para tabela `imagem_mundo`
---
-ALTER TABLE `imagem_mundo`
-  ADD KEY `fk_mundo` (`mundo_id`),
-  ADD KEY `fk_imagem` (`imagem_id`);
-
---
--- Índices para tabela `imagem_objeto`
---
-ALTER TABLE `imagem_objeto`
-  ADD KEY `objeto_id` (`objeto_id`),
-  ADD KEY `imagem_id` (`imagem_id`);
-
---
--- Índices para tabela `imagem_personagem`
---
-ALTER TABLE `imagem_personagem`
-  ADD KEY `fk_personagem` (`personagem_id`),
-  ADD KEY `imagem_fk` (`imagem_id`);
 
 --
 -- Índices para tabela `mundo`
@@ -211,78 +149,32 @@ ALTER TABLE `personagem`
 --
 
 --
--- AUTO_INCREMENT de tabela `audio`
---
-ALTER TABLE `audio`
-  MODIFY `id_audio` int(255) NOT NULL AUTO_INCREMENT;
-
---
 -- AUTO_INCREMENT de tabela `cliente`
 --
 ALTER TABLE `cliente`
-  MODIFY `id_cliente` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
---
--- AUTO_INCREMENT de tabela `imagem`
---
-ALTER TABLE `imagem`
-  MODIFY `id_imagem` int(255) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_cliente` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT de tabela `mundo`
 --
 ALTER TABLE `mundo`
-  MODIFY `id_mundo` int(255) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_mundo` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT de tabela `objeto`
 --
 ALTER TABLE `objeto`
-  MODIFY `id_objeto` int(255) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_objeto` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT de tabela `personagem`
 --
 ALTER TABLE `personagem`
-  MODIFY `id_personagem` int(255) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_personagem` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- Restrições para despejos de tabelas
 --
-
---
--- Limitadores para a tabela `audio`
---
-ALTER TABLE `audio`
-  ADD CONSTRAINT `cliente_id` FOREIGN KEY (`cliente_id`) REFERENCES `cliente` (`id_cliente`),
-  ADD CONSTRAINT `personagem_id` FOREIGN KEY (`personagem_id`) REFERENCES `personagem` (`id_personagem`);
-
---
--- Limitadores para a tabela `imagem`
---
-ALTER TABLE `imagem`
-  ADD CONSTRAINT `fk_cliente_imagem` FOREIGN KEY (`cliente_id`) REFERENCES `cliente` (`id_cliente`);
-
---
--- Limitadores para a tabela `imagem_mundo`
---
-ALTER TABLE `imagem_mundo`
-  ADD CONSTRAINT `fk_imagem` FOREIGN KEY (`imagem_id`) REFERENCES `imagem` (`id_imagem`),
-  ADD CONSTRAINT `fk_mundo` FOREIGN KEY (`mundo_id`) REFERENCES `mundo` (`id_mundo`);
-
---
--- Limitadores para a tabela `imagem_objeto`
---
-ALTER TABLE `imagem_objeto`
-  ADD CONSTRAINT `imagem_id` FOREIGN KEY (`imagem_id`) REFERENCES `imagem` (`id_imagem`),
-  ADD CONSTRAINT `objeto_id` FOREIGN KEY (`objeto_id`) REFERENCES `objeto` (`id_objeto`);
-
---
--- Limitadores para a tabela `imagem_personagem`
---
-ALTER TABLE `imagem_personagem`
-  ADD CONSTRAINT `fk_personagem` FOREIGN KEY (`personagem_id`) REFERENCES `personagem` (`id_personagem`),
-  ADD CONSTRAINT `imagem_fk` FOREIGN KEY (`imagem_id`) REFERENCES `imagem` (`id_imagem`);
 
 --
 -- Limitadores para a tabela `mundo`

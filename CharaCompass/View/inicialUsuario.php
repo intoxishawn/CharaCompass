@@ -17,7 +17,7 @@ if (!isset($_SESSION['id']) || !isset($_SESSION['nome'])) {
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
-    <script src="inicial_usuario.js"></script>
+    <script src="inicialCodes.js"></script>
     <link rel="icon" type="image/x-icon" href="../View/Imagens/favicon-32x32.png">
     <title>Minha galeria</title>
 </head>
@@ -32,14 +32,15 @@ if (!isset($_SESSION['id']) || !isset($_SESSION['nome'])) {
         <button class="nav_button" onclick="abrePersonagens()"> Personagens </button>
         <button class="nav_button" onclick="abreMundos()"> Mundos </button>
         <button class="nav_button" onclick="abreObjetos()"> Objetos </button>
+        <button class="nav_perfil" onclick="abreEditar()"> Editar </button>
+        <button class="nav_perfil" onclick="desconectar()"> Desconectar </button>
     </nav>
 
     <div id="main">
         <div class="explicacao01">
-            <a onclick="abrePerfilUsuario()"><img id="pfp" src="Imagens/avatarplaceholder.png" alt="Foto de perfil"></a>
+            <img id="pfp" src="Imagens/avatarplaceholder.png" alt="Foto de perfil">
             <div class="conteudo">
             <p id="username"> Bem vindo(a) <?php echo $_SESSION['nome'] ?></p>
-                <p>Biografia</p>
             </div>
         </div>
        

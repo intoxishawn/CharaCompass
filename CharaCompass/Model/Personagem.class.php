@@ -163,6 +163,17 @@ class Personagem{
         }
     }
 
+    //imagem
+    public static function saveFile($img) {
+        $imgName = md5(uniqid(rand(), true)) . '.png';
+
+        $imgPath = __DIR__.'/../View/uploads/' . $imgName;
+
+        move_uploaded_file($img['tmp_name'], $imgPath);
+
+        return 'uploads/' .$imgName;
+    }
+
     //update
     public function update(){
         $pdo = conexao();
@@ -210,8 +221,10 @@ class Personagem{
         try{
             $pdo = conexao();
             $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            $clienteId = $_SESSION['id'];
 
-            $stmt = $pdo->prepare("SELECT * FROM personagem ORDER BY nome_personagem");
+            $stmt = $pdo->prepare("SELECT * FROM personagem WHERE cliente_id = :clienteId ORDER BY nome_personagem");
+            $stmt->bindParam(':clienteId', $clienteId);
             $stmt->execute();
 
             $linha = $stmt->fetch(PDO::FETCH_ASSOC);
@@ -219,7 +232,7 @@ class Personagem{
             if(!$linha){
                 echo '<object type="image/svg+xml" data="../View/Imagens/chicken.svg" width="100" height="100"></object>';
                 echo '<br>';
-                echo "Nada aqui além de nós e galinhas!";
+                echo "Este lugar está mais vazio do que um galinheiro sem uma única galinha. <br> Que tal 'chocar' uma nova criação de personagem aqui?";
             }else{
                
                 echo "<div id=\"list\" class=\"row\">";

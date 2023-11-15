@@ -59,6 +59,8 @@ if (!isset($_SESSION['id']) || !isset($_SESSION['nome'])) {
             <input type="submit" value="Criar Ficha!">
         </form>
     </div>
+    <br><br>
+    <button class="voltar" onclick="cancelarCriacao()"> Cancelar </button>
 
     <footer>
         <h3> CharaCompass - 2023 </h3>
@@ -78,6 +80,13 @@ if (!isset($_SESSION['id']) || !isset($_SESSION['nome'])) {
           ['insert', ['link']]
         ]
       });
+
+      function cancelarCriacao() {
+        var confirmacao = confirm("Tem certeza que deseja voltar? Sua criação não será salva!");
+        if (confirmacao) {
+            window.location.href ="objetosUsuario.php";
+        }
+    }
     </script>
 </body>
 </html>

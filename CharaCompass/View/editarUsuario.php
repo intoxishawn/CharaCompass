@@ -1,12 +1,23 @@
 <?php
 session_start();
 if (session_status() === PHP_SESSION_ACTIVE) {
-    // Sessão está ativa, o usuário está logado
-} else {
-    // Sessão não está ativa, redirecione para a página de login
+   
+}else{
     header("Location: login.php");
-    exit(); // Encerrar o script após o redirecionamento
+    exit();
 }
+
+include_once '../Controller/Conexao.php';
+include_once '../Model/Cliente.class.php';
+
+$id = $_SESSION['id'];
+
+if (!is_numeric($id) || $id <= 0) {
+    echo "ID inválido";
+    exit();
+}
+
+$cliente = Cliente::getOne($id);
 
 ?>
 
@@ -19,6 +30,9 @@ if (session_status() === PHP_SESSION_ACTIVE) {
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
     <script src="editarUsuario.js"></script>
     <link rel="icon" type="image/x-icon" href="../View/Imagens/favicon-32x32.png">
     <title>Perfil do Usuário</title>
@@ -38,32 +52,34 @@ if (session_status() === PHP_SESSION_ACTIVE) {
   
       <div id="main">
           <div class="explicacao01">
-              <img id="pfp" src="Imagens/avatarplaceholder.png" alt="Imagem do CharaCompass">
-              <div class="conteudo">
-                <label> Nome de Usuário</label>
-                <br>
-                <input type="text" class="bio">
-                <br><br><br>
-                <label> Biografia </label>
-                <br>
-                <textarea rows="4" cols="50" class="bio" ></textarea>
-              </div>
-            </div>
-            <div id="menu_perfil">
-                <label for="add_imagem" class="label-imagem">
-                    Selecione uma imagem:
-                </label>
-                <br>
-                <input type="file" id="add_imagem" accept="image/*" class="input-imagem">                
-                <br><br><br>
-                <button class="nav_perfil" onclick="abrePerfil()"> Salvar </button>
+            <br>
+            <form action="../Controller/atualizarCliente.php?acao=atualizar" method="POST">
+                    <img src="Imagens/avatarplaceholder.png">
+                    <br>
+                    <input type="file" accept="image/*">
+
+                <h3> Nome de Usuário: </h3>
+                <input type="text" required value="<?php echo $_SESSION['nome'];?>" name="username">
                 <br><br>
-                <button class="nav_perfil" onclick="abrePerfil()"> Cancelar </button>
+                <input type="submit" value="Salvar">
+            </form>
+                <br><br><br>
+                <button class="voltar" onclick="cancelarEdicao()"> Cancelar </button>
               </div>
         </div>
-   <footer>
+   
+        <footer>
     <h3> CharaCompass - 2023 </h3>
     <p> A bússola do seu mundo para seus personagens </p>
    </footer>    
+
+   <script>
+      function cancelarEdicao() {
+        var confirmacao = confirm("Tem certeza que deseja voltar? Sua edição não será salva!");
+        if (confirmacao) {
+            window.location.href ="inicialUsuario.php";
+        }
+    }
+   </script>
 </body>
 </html>

@@ -33,3 +33,11 @@ function criarMundo(){
 function criarObjeto(){
     window.location.href = "addObjeto.php";
 }
+
+function abreEditar(){
+    window.location.href = "editarUsuario.php";
+}
+
+function desconectar(){
+    window.location.href = "../Controller/logout.php";
+}

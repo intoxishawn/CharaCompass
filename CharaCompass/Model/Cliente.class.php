@@ -9,7 +9,6 @@
         private $nome;
         private $email;
         private $senha;
-        private $biografia;
 
         //get e set no trait
 
@@ -36,17 +35,13 @@
         public function update(){
             $pdo = conexao();
             try{
-                $stmt = $pdo ->prepare('UPDATE cliente SET nome_cliente = :nome, email_cliente = :email, senha_cliente = :senha, 
-                biografia_cliente = :biografia WHERE id_cliente = :id');
+                $stmt = $pdo->prepare('UPDATE cliente SET nome_cliente = :nome WHERE id_cliente = :id');
                 $stmt->execute([
                     ':nome' => $this->nome,
-                    ':email' => $this->email,
-                    ':senha' => $this->senha,
-                    ':biografia' => $this->biografia,
                     ':id' => $this->id
                 ]);
                 return true;
-            }catch(Exception $e){
+            } catch(Exception $e){
                 return false;
             }
         }
@@ -68,10 +63,21 @@
                 $cliente->setNome($linha['nome_cliente']);
                 $cliente->setEmail($linha['email_cliente']);
                 $cliente->setSenha($linha['senha_cliente']);
-                $cliente->setBiografia($linha['biografia_cliente']);
 
                 $lista[] = $cliente;
             } return $lista;
+        }
+
+        //getOne
+        public static function getOne($id){
+            $pdo = conexao();
+            $stmt = $pdo->prepare('SELECT * FROM cliente WHERE id_cliente = :id');
+            $stmt->execute([
+                ':id' => $id
+            ]);
+            $cliente = $stmt->fetch(PDO::FETCH_ASSOC);
+            
+            return $cliente;
         }
 
         public function login() {

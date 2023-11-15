@@ -34,7 +34,7 @@ if (session_status() === PHP_SESSION_ACTIVE) {
     </div>
 
     <div>
-        <form action="../Controller/mundoController.php?acao=criar" method="POST">
+        <form action="../Controller/mundoController.php?acao=criar" method="POST" enctype="multipart/form-data">
             <h3> Nome do Mundo: </h3>
             <input type="text" name="new_name" id="new_name" required>
             <br><br>
@@ -51,12 +51,14 @@ if (session_status() === PHP_SESSION_ACTIVE) {
             <br>
 
             <h3> Como seria seu mundo?</h3>
-            <input type="file" name="imagem_mundo" accept="image/*" class="input-imagem" multiple>
+            <input type="file" name="imagem_mundo" accept="image/*" class="input-imagem">
 
             <br><br><br>
             
             <input type="submit" value="Criar ficha!">
         </form>
+        <br><br>
+        <button class="voltar" onclick="cancelarCriacao()"> Cancelar </button>
     </div>
     
     <footer>
@@ -77,6 +79,13 @@ if (session_status() === PHP_SESSION_ACTIVE) {
           ['insert', ['link']]
         ]
       });
+
+      function cancelarCriacao() {
+        var confirmacao = confirm("Tem certeza que deseja voltar? Sua criação não será salva!");
+        if (confirmacao) {
+            window.location.href ="mundosUsuario.php";
+        }
+    }
     </script>
 </body>
 </html>

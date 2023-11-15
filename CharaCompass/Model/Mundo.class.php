@@ -6,11 +6,12 @@ class Mundo{
 
     use Model;
 
-    public $id;
-    public $nome;
-    public $info;
-    public $trivia;
-    public $cliente_id;
+    private $id;
+    private $nome;
+    private $info;
+    private $trivia;
+    private $imagem;
+    private $cliente_id;
 
     public function __construct($id = null, $nome = null, $info = null, $trivia = null, $cliente_id = null) {        
         $this->id = $id;
@@ -51,6 +52,14 @@ class Mundo{
     public function getTrivia()
     {
         return $this->trivia;
+    }
+
+        /**
+     * @return mixed
+     */
+    public function getImagem()
+    {
+        return $this->imagem;
     }
 
     /**
@@ -94,6 +103,14 @@ class Mundo{
     }
 
     /**
+     * @param mixed $imagem
+     */
+    public function setImagem($imagem)
+    {
+        $this->imagem = $imagem;
+    }
+
+    /**
      * @param mixed $cliente_id
      */
     public function setCliente_id($cliente_id)
@@ -119,6 +136,17 @@ class Mundo{
                 echo $e->getMessage();
                 return false;
             }
+        }
+
+        //imagem
+        public static function saveFile($img) {
+            $imgName = md5(uniqid(rand(), true)) . '.png';
+
+            $imgPath = __DIR__.'/../View/uploads/' . $imgName;
+
+            move_uploaded_file($img['tmp_name'], $imgPath);
+
+            return 'uploads/' .$imgName;
         }
 
         public function update(){
@@ -158,16 +186,18 @@ class Mundo{
             try {
                 $pdo = conexao();
                 $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+                $clienteId = $_SESSION['id'];
         
-                $stmt = $pdo->prepare("SELECT * FROM mundo ORDER BY nome_mundo");
+                $stmt = $pdo->prepare("SELECT * FROM mundo WHERE cliente_id = :clienteId ORDER BY nome_mundo");
+                $stmt->bindParam(':clienteId', $clienteId);
                 $stmt->execute();
         
                 $linha = $stmt->fetch(PDO::FETCH_ASSOC);
         
                 if (!$linha) {
-                    echo '<object type="image/svg+xml" data="../View/Imagens/chicken.svg" width="100" height="100"></object>';
+                    echo '<object type="image/svg+xml" data="../View/Imagens/saturno.svg" width="100" height="100"></object>';
                     echo '<br>';
-                    echo "Nada aqui além de nós e galinhas!";
+                    echo "Opa! Chegamos em um novo mundo... Alguém aí tem um mapa?";
                 } else {
                     echo "<div id=\"list\" class=\"row\">";
                     echo "<div class=\"table-responsive col-md-12\">";

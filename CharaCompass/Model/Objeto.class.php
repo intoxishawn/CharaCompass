@@ -184,16 +184,18 @@ class Objeto{
         try {
             $pdo = conexao();
             $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            $clienteId = $_SESSION['id'];
     
-            $stmt = $pdo->prepare("SELECT * FROM objeto ORDER BY nome_objeto");
+            $stmt = $pdo->prepare("SELECT * FROM objeto WHERE cliente_id = :clienteId ORDER BY nome_objeto");
+            $stmt->bindParam(':clienteId', $clienteId);
             $stmt->execute();
     
             $linha = $stmt->fetch(PDO::FETCH_ASSOC);
     
             if (!$linha) {
-                echo '<object type="image/svg+xml" data="../View/Imagens/chicken.svg" width="100" height="100"></object>';
+                echo '<object type="image/svg+xml" data="../View/Imagens/chest.svg" width="100" height="100"></object>';
                 echo '<br>';
-                echo "Nada aqui além de nós e galinhas!";
+                echo "Este espaço está mais vazio do que um baú de tesouros após uma visita do Capitão Gancho! <br>  Que tal criar um objeto para deixá-lo mais interessante?";
             } else {
                 echo "<div id=\"list\" class=\"row\">";
                 echo "<div class=\"table-responsive col-md-12\">";

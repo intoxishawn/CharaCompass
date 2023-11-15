@@ -32,18 +32,19 @@ include_once "../Model/Personagem.class.php";
       </header>
   
       <nav>
-          <button class="nav_button" onclick="abreGaleria()"> Galeria </button>
-          <button class="nav_button" onclick="abrePersonagens()"> Personagens </button>
-          <button class="nav_button" onclick="abreMundos()"> Mundos </button>
-          <button class="nav_button" onclick="abreObjetos()"> Objetos </button>
-      </nav>
+        <button class="nav_button" onclick="abreGaleria()"> Galeria </button>
+        <button class="nav_button" onclick="abrePersonagens()"> Personagens </button>
+        <button class="nav_button" onclick="abreMundos()"> Mundos </button>
+        <button class="nav_button" onclick="abreObjetos()"> Objetos </button>
+        <button class="nav_perfil" onclick="abreEditar()"> Editar </button>
+        <button class="nav_perfil" onclick="desconectar()"> Desconectar </button>        
+    </nav>
   
       <div id="main">
           <div class="explicacao01">
-              <a onclick="abrePerfilUsuario()"><img id="pfp" src="Imagens/avatarplaceholder.png" alt="Foto de perfil"></a>
+          <img id="pfp" src="Imagens/avatarplaceholder.png" alt="Foto de perfil">
               <div class="conteudo">
                   <p id="username"><?php echo $_SESSION['nome'] ?></p>
-                  <p>Biografia</p>
               </div>
           </div>
 
