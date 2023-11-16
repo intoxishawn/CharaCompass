@@ -46,6 +46,9 @@ $criacao = Mundo::getOne($id);
             echo "<h3>" . $criacao['nome_mundo'] . "</h3>";
             echo "</div>";
 
+            echo "<div class=\"tituloPagina\">";
+            echo '<img src="' . $criacao['imagem'] . '">';
+
             echo "<div id=\"geral\">";
             echo "<h3> Informações gerais do Mundo </h3>";
             echo "<p>" . $criacao['info_mundo'] . "</p>";

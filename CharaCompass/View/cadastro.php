@@ -19,7 +19,7 @@ session_start();
 <body>
     <header>
         <h1> CharaCompass</h1>
-        <p> Criar Conta </p>
+        <h2> Criar Conta </h2>
     </header>
 
     <nav>

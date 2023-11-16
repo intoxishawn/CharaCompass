@@ -10,6 +10,10 @@ if ($acao === 'criar') {
     $mundo->__set("nome", $_POST['new_name']);
     $mundo->__set("info", $_POST['new_info']);
     $mundo->__set("trivia", $_POST['new_trivia']);
+    if(isSet($_FILES['imagem_mundo'])){
+        $foto = Mundo::saveFile($_FILES['imagem_mundo']);
+        $mundo->__set("imagem", $foto);
+    }
     $mundo->__set("cliente_id", $clienteId);
     $mundo->save();
     header("Location: ../View/mundosUsuario.php");

@@ -110,7 +110,13 @@
   }
 
   h1{
-    font-family: Lobster, 'cursive';
+    font-family: 'Lobster', cursive;
+    color: #caa06c;
+  }
+
+  h2{
+    font-family: 'Lobster', cursive;
+    color: #fad8af;
   }
 
   #main{

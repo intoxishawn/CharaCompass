@@ -118,17 +118,30 @@ class Mundo{
         $this->cliente_id = $cliente_id;
     }
 
-    //get e set em trait
+    //get e set em trait 
+    
+    //imagem
+        public static function saveFile($img) {
+            $imgName = md5(uniqid(rand(), true)) . '.png';
+
+            $imgPath = __DIR__.'/../View/Uploads/' . $imgName;
+
+            move_uploaded_file($img['tmp_name'], $imgPath);
+
+            return 'uploads/' .$imgName;
+        }
+
 
     public function save()
         {
             $pdo = conexao();
             try {
-                $stmt1 = $pdo->prepare('INSERT INTO mundo (nome_mundo, info_mundo, trivia_mundo, cliente_id) VALUES(:nome, :info, :trivia, :cliente_id)');
+                $stmt1 = $pdo->prepare('INSERT INTO mundo (nome_mundo, info_mundo, trivia_mundo, cliente_id, imagem) VALUES(:nome, :info, :trivia, :cliente_id, :imagem)');
                 $stmt1->execute([
                     ':nome' => $this->nome,
                     ':info' => $this->info,
                     ':trivia' => $this->trivia,
+                    ':imagem' => $this->imagem,
                     ':cliente_id' => $this->cliente_id
                 ]);
                 return true;
@@ -138,25 +151,15 @@ class Mundo{
             }
         }
 
-        //imagem
-        public static function saveFile($img) {
-            $imgName = md5(uniqid(rand(), true)) . '.png';
-
-            $imgPath = __DIR__.'/../View/uploads/' . $imgName;
-
-            move_uploaded_file($img['tmp_name'], $imgPath);
-
-            return 'uploads/' .$imgName;
-        }
-
         public function update(){
             $pdo = conexao();
             try{
-                $stmt = $pdo ->prepare('UPDATE mundo SET nome_mundo = :nome, info_mundo = :info, trivia_mundo = :trivia WHERE id_mundo = :id');
+                $stmt = $pdo ->prepare('UPDATE mundo SET nome_mundo = :nome, info_mundo = :info, trivia_mundo = :trivia, imagem = :imagem WHERE id_mundo = :id');
                 $stmt->execute([
                     ':nome' => $this->nome,
                     ':info' => $this->info,
                     ':trivia' => $this->trivia,
+                    ':imagem' =>this->imagem,
                     ':id' => $this->id
                 ]);
                 return true;
