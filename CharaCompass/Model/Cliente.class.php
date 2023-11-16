@@ -9,20 +9,34 @@
         private $nome;
         private $email;
         private $senha;
+        private $pfp_caminho;
 
         //get e set no trait
 
-    //save
+        public static function saveFile($img) {
+            $imgName = md5(uniqid(rand(), true)) . '.png';
+    
+            $imgPath = __DIR__.'/../View/uploads/' . $imgName;
+    
+            move_uploaded_file($img['tmp_name'], $imgPath);
+    
+            return 'Uploads/' .$imgName;
+        }
+
+
+        //save
         public function save()
         {
             $pdo = conexao();
             try {
+                $imagemPadrao = '../View/Imagens/avatarplaceholder.png';
                 $novasenha = password_hash($this->senha, PASSWORD_DEFAULT);
-                $stmt1 = $pdo->prepare('INSERT INTO cliente (nome_cliente, email_cliente, senha_cliente) VALUES(:nome, :email, :senha)');
+                $stmt1 = $pdo->prepare('INSERT INTO cliente (nome_cliente, email_cliente, senha_cliente, pfp_caminho) VALUES(:nome, :email, :senha, :pfp_caminho)');
                 $stmt1->execute([
                     ':nome' => $this->nome,
                     ':email' => $this->email,
-                    ':senha' => $novasenha
+                    ':senha' => $novasenha,
+                    ':pfp_caminho' => $imagemPadrao
                 ]);
                 return true;
             } catch(Exception $e) { 
@@ -35,9 +49,10 @@
         public function update(){
             $pdo = conexao();
             try{
-                $stmt = $pdo->prepare('UPDATE cliente SET nome_cliente = :nome WHERE id_cliente = :id');
+                $stmt = $pdo->prepare('UPDATE cliente SET nome_cliente = :nome, pfp_caminho = :pfp_caminho WHERE id_cliente = :id');
                 $stmt->execute([
                     ':nome' => $this->nome,
+                    ':pfp_caminho' => $this->pfp_caminho,
                     ':id' => $this->id
                 ]);
                 return true;

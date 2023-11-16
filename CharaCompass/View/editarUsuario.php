@@ -17,7 +17,10 @@ if (!is_numeric($id) || $id <= 0) {
     exit();
 }
 
-$cliente = Cliente::getOne($id);
+include_once '../Model/Cliente.class.php';
+
+$id = $_SESSION['id'];
+$pfp = Cliente::getOne($id);
 
 ?>
 
@@ -53,10 +56,18 @@ $cliente = Cliente::getOne($id);
       <div id="main">
           <div class="explicacao01">
             <br>
-            <form action="../Controller/atualizarCliente.php?acao=atualizar" method="POST">
-                    <img src="Imagens/avatarplaceholder.png">
-                    <br>
-                    <input type="file" accept="image/*">
+            <form action="../Controller/atualizarCliente.php?acao=atualizar" method="POST" enctype="multipart/form-data">
+                <?php 
+            
+                echo "<div class=\"tituloPagina\">";
+                echo '<img src="' . $pfp['pfp_caminho'] . '">';
+                echo "</div>";
+                ?>
+
+                <br>
+                <h3>Alterar foto de perfil</h3>
+                <br>
+                <input type="file" name="pfp" accept="image/*" class="input-imagem">
 
                 <h3> Nome de Usuário: </h3>
                 <input type="text" required value="<?php echo $_SESSION['nome'];?>" name="username">

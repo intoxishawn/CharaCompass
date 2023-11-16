@@ -14,6 +14,12 @@ if ($acao === 'atualizar' && isset($_POST['username'])) {
         $cliente = new Cliente();
         $cliente->__set("id", $id_usuario);
         $cliente->__set("nome", $novo_nome);
+
+        if(isSet($_FILES['pfp'])){
+            $foto = Cliente::saveFile($_FILES['pfp']);
+            $cliente->__set("pfp_caminho", $foto);
+        }
+
         $cliente->update();
 
         $_SESSION['nome'] = $novo_nome;

@@ -1,10 +1,16 @@
 <?php
 session_start();
+
 if (!isset($_SESSION['id']) || !isset($_SESSION['nome'])) {
-    // Redireciona para a página de login se a sessão não estiver ativa
     header("Location: login.php");
-    exit(); // Termina o script para garantir que a página não seja processada mais adiante
+    exit(); 
 }
+
+include_once '../Controller/Conexao.php';
+include_once '../Model/Cliente.class.php';
+
+$id = $_SESSION['id'];
+$pfp = Cliente::getOne($id);
 
 ?>
 
@@ -38,7 +44,16 @@ if (!isset($_SESSION['id']) || !isset($_SESSION['nome'])) {
 
     <div id="main">
         <div class="explicacao01">
-            <img id="pfp" src="Imagens/avatarplaceholder.png" alt="Foto de perfil">
+            <div id="fotodeperfil">
+            <?php 
+            
+            echo "<div class=\"tituloPagina\">";
+            echo '<img src="' . $pfp['pfp_caminho'] . '">';
+            echo "</div>";
+
+            ?>
+            </div>
+            
             <div class="conteudo">
             <p id="username"> Bem vindo(a) <?php echo $_SESSION['nome'] ?></p>
             </div>

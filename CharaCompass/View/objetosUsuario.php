@@ -1,14 +1,19 @@
 <?php
 session_start();
 if (session_status() === PHP_SESSION_ACTIVE) {
-    // Sessão está ativa, o usuário está logado
+    // Sessão está ativa
 } else {
-    // Sessão não está ativa, redirecione para a página de login
     header("Location: login.php");
-    exit(); // Encerrar o script após o redirecionamento
+    exit();
 }
 
 include_once('../Model/objeto.class.php');
+include_once '../Controller/Conexao.php';
+include_once '../Model/Cliente.class.php';
+
+$id = $_SESSION['id'];
+$pfp = Cliente::getOne($id);
+
 ?>
 
 <!DOCTYPE html>
@@ -39,8 +44,17 @@ include_once('../Model/objeto.class.php');
         <button class="nav_perfil" onclick="desconectar()"> Desconectar </button>        
     </nav>
     <div id="main">
+    
         <div class="explicacao01">
-        <img id="pfp" src="Imagens/avatarplaceholder.png" alt="Foto de perfil">
+            <div id="fotodeperfil">
+            <?php 
+            
+            echo "<div class=\"tituloPagina\">";
+            echo '<img src="' . $pfp['pfp_caminho'] . '">';
+            echo "</div>";
+
+            ?>
+        </div>
             <div class="conteudo">
                 <p id="username"><?php echo $_SESSION['nome'] ?></p>
             </div> 
