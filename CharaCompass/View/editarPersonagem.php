@@ -45,7 +45,7 @@ $personagem = Personagem::getOne($id);
     </div>
 
     <div>
-        <form action="../Controller/personagemController.php?acao=atualizar" method="POST">
+        <form action="../Controller/personagemController.php?acao=atualizar" method="POST" enctype="multipart/form-data">
             <input type="hidden" name="id_personagem" value="<?php echo $personagem['id_personagem']; ?>">
         
             <h3> Nome do personagem: </h3>
@@ -74,7 +74,7 @@ $personagem = Personagem::getOne($id);
             <br><br>
 
             <h3> Como seu personagem é? </h3>
-            <input type="file" accept="image/*" multiple>
+            <input type="file" name="imagem_personagem" accept="image/*" class="input-imagem">
 
             <br><br><br>
             <input type="submit" value="Salvar">

@@ -20,7 +20,6 @@ if (session_status() === PHP_SESSION_ACTIVE) {
     <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
     <link rel="icon" type="image/x-icon" href="../View/Imagens/favicon-32x32.png">
-    <script src="/CharaCompass/View/adicao.js"></script>
     <title> Crie um mundo </title>
 </head>
 <body>

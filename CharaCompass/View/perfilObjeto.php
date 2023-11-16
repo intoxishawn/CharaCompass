@@ -45,6 +45,10 @@ $criacao = Objeto::getOne($id);
             echo "<h3>" . $criacao['nome_objeto'] . "</h3>";
             echo "</div>";
 
+            echo "<div class=\"tituloPagina\">";
+            echo '<img src="' . $criacao['imagem'] . '">';
+            echo "</div>";
+
             echo "<div id=\"caracteristicas\">";
             echo "<h3> Características do Objeto </h3>";
             echo "<p>" . $criacao['caracteristicas'] . "</p>";

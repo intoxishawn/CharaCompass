@@ -79,15 +79,9 @@ CREATE TABLE `objeto` (
   `historia_objeto` text DEFAULT NULL,
   `trivia_objeto` text DEFAULT NULL,
   `cliente_id` int(255) NOT NULL,
-  `anexo` varchar(255) DEFAULT NULL
+  `imagem` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
---
--- Extraindo dados da tabela `objeto`
---
-
-INSERT INTO `objeto` (`id_objeto`, `nome_objeto`, `caracteristicas`, `historia_objeto`, `trivia_objeto`, `cliente_id`, `anexo`) VALUES
-(7, 'espada de gelo', 'Ela é grande e pesa 4 kg<br>', 'Ela foi esculpida para defender um povo da groelandia<br>', 'Ela não pode sair da Groelândia<br>', 13, NULL);
 
 -- --------------------------------------------------------
 

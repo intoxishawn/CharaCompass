@@ -44,7 +44,7 @@ $objeto = Objeto::getOne($id);
     </div>
 
     <div>
-        <form action="../Controller/objetoController.php?acao=atualizar" method="POST">
+        <form action="../Controller/objetoController.php?acao=atualizar" method="POST" enctype="multipart/form-data">
         <input type="hidden" name="id" value="<?php echo $objeto['id_objeto']; ?>">
         
             <h3> Nome do Objeto: </h3>
@@ -66,7 +66,7 @@ $objeto = Objeto::getOne($id);
             <br>
 
             <h3>Como seria o seu objeto?</h3>
-            <input type="file" accept="image/*" multiple name="img_obj">
+            <input type="file" name="imagem_objeto" accept="image/*" class="input-imagem">
 
             <br><br><br>
             

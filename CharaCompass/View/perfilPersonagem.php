@@ -47,7 +47,11 @@ $criacao = Personagem::getOne($id);
         </div>
 
         <div id="icone">
-            
+            <?php
+                echo "<div class=\"tituloPagina\">";
+                echo '<img src="' . $criacao['imagem'] . '">';
+                echo "</div>";
+            ?>
         </div>
 
         <div id="geral">

@@ -12,6 +12,7 @@ class Personagem{
     private $personalidade;
     private $historia;
     private $trivia;
+    private $imagem;
     private $cliente_id;
 
     //get e set em um Model
@@ -19,13 +20,14 @@ class Personagem{
     /* =========== CONSTRUTOR =========== */
 
     public function __construct($id = null, $nome = null, $info = null, 
-    $personalidade = null, $historia = null, $trivia = null, $cliente_id = null){
+    $personalidade = null, $historia = null, $trivia = null, $imagem = null, $cliente_id = null){
         $this->id = $id;
         $this->nome = $nome;
         $this->info = $info;
         $this->personalidade = $personalidade;
         $this->historia = $historia;
         $this->trivia = $trivia;
+        $this->imagem = $imagem;
         $this->cliente_id = $cliente_id;
     }
 
@@ -71,6 +73,14 @@ class Personagem{
      */
     public function getTrivia(){
         return $this->trivia;
+    }
+
+     /**
+     * @return mixed
+     */
+    public function getImagem()
+    {
+        return $this->imagem;
     }
 
     /**
@@ -132,6 +142,14 @@ class Personagem{
     }
 
     /**
+     * @param mixed $imagem
+     */
+    public function setImagem($imagem)
+    {
+        $this->imagem = $imagem;
+    }
+
+    /**
      * @param mixed $cliente_id
      */
     public function setCliente_id($cliente_id)
@@ -140,21 +158,33 @@ class Personagem{
     }
 
     /* =========== CRUD =========== */
+     
+    //imagem
+     public static function saveFile($img) {
+        $imgName = md5(uniqid(rand(), true)) . '.png';
+
+        $imgPath = __DIR__.'/../View/Uploads/' . $imgName;
+
+        move_uploaded_file($img['tmp_name'], $imgPath);
+
+        return 'uploads/' .$imgName;
+    }
 
     //save
     public function save(){
         $pdo = conexao();
 
         try{
-            $stmt = $pdo->prepare('INSERT INTO personagem (nome_personagem, info_personagem, personalidade, historia, trivia_personagem, cliente_id)
-            VALUES(:nome, :info, :personalidade, :historia, :trivia, :cliente_id)');
+            $stmt = $pdo->prepare('INSERT INTO personagem (nome_personagem, info_personagem, personalidade, historia, trivia_personagem, cliente_id, imagem)
+            VALUES(:nome, :info, :personalidade, :historia, :trivia, :cliente_id, :imagem)');
             $stmt->execute([
                 ':nome'=>$this->nome,
                 ':info'=>$this->info,
                 ':personalidade'=>$this->personalidade,
                 ':historia'=>$this->historia,
                 ':trivia'=>$this->trivia,
-                ':cliente_id'=>$this->cliente_id
+                ':cliente_id'=>$this->cliente_id,
+                ':imagem'=>$this->imagem
             ]);
             return true;
         } catch(Exception $e){
@@ -163,29 +193,19 @@ class Personagem{
         }
     }
 
-    //imagem
-    public static function saveFile($img) {
-        $imgName = md5(uniqid(rand(), true)) . '.png';
-
-        $imgPath = __DIR__.'/../View/uploads/' . $imgName;
-
-        move_uploaded_file($img['tmp_name'], $imgPath);
-
-        return 'uploads/' .$imgName;
-    }
-
     //update
     public function update(){
         $pdo = conexao();
     
         try{
-            $stmt = $pdo->prepare('UPDATE personagem SET nome_personagem = :nome, info_personagem = :info, personalidade = :personalidade, historia = :historia, trivia_personagem = :trivia WHERE id_personagem = :id');
+            $stmt = $pdo->prepare('UPDATE personagem SET nome_personagem = :nome, info_personagem = :info, personalidade = :personalidade, historia = :historia, trivia_personagem = :trivia, imagem = :imagem WHERE id_personagem = :id');
             $stmt->execute([
                 ':nome' => $this->nome,
                 ':info' => $this->info,
                 ':personalidade' => $this->personalidade,
                 ':historia' => $this->historia,
                 ':trivia' => $this->trivia,
+                ':imagem' => $this->imagem,
                 ':id' => $this->id
             ]);
             return true;

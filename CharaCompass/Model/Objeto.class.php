@@ -11,16 +11,18 @@ class Objeto{
     private $caracteristicas;
     private $historia;
     private $trivia;
+    private $imagem;
     private $cliente_id;
 
     /* =========== MODEL  =========== */
 
-    public function __construct($id = null, $nome = null, $caracteristicas = null, $historia = null, $trivia = null, $cliente_id = null) {        
+    public function __construct($id = null, $nome = null, $caracteristicas = null, $historia = null, $trivia = null, $imagem = null, $cliente_id = null) {        
         $this->id = $id;
         $this->nome = $nome;
         $this->caracteristicas = $caracteristicas;
         $this->historia = $historia;
         $this->trivia = $trivia;
+        $this->imagem = $imagem;
         $this->cliente_id = $cliente_id;                
     }
 
@@ -64,6 +66,14 @@ class Objeto{
     public function getTrivia()
     {
         return $this->trivia;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getImagem()
+    {
+        return $this->imagem;
     }
 
     /**
@@ -117,6 +127,14 @@ class Objeto{
     }
 
     /**
+     * @param mixed $imagem
+     */
+    public function setImagem($imagem)
+    {
+        $this->imagem = $imagem;
+    }
+
+    /**
      * @param mixed $cliente_id
      */
     public function setCliente_id($cliente_id)
@@ -129,13 +147,14 @@ class Objeto{
     public function save(){
         $pdo = conexao();
         try{
-            $stmt1 = $pdo->prepare('INSERT INTO objeto (nome_objeto, caracteristicas, historia_objeto, trivia_objeto, cliente_id) VALUES(:nome, :caracteristicas, :historia, :trivia, :cliente_id)');
+            $stmt1 = $pdo->prepare('INSERT INTO objeto (nome_objeto, caracteristicas, historia_objeto, trivia_objeto, cliente_id, imagem) VALUES(:nome, :caracteristicas, :historia, :trivia, :cliente_id, :imagem)');
             $stmt1->execute([
                 ':nome' => $this->nome,
                 ':caracteristicas' => $this->caracteristicas,
                 ':historia' => $this->historia,
                 ':trivia' => $this->trivia,
-                ':cliente_id' => $this->cliente_id
+                ':cliente_id' => $this->cliente_id,
+                ':imagem' => $this->imagem
             ]);
             return true;
         }catch(Exception $e) { 
@@ -144,15 +163,27 @@ class Objeto{
         }
     }
 
+    //imagem
+    public static function saveFile($img) {
+        $imgName = md5(uniqid(rand(), true)) . '.png';
+
+        $imgPath = __DIR__.'/../View/Uploads/' . $imgName;
+
+        move_uploaded_file($img['tmp_name'], $imgPath);
+
+        return 'uploads/' .$imgName;
+    }
+
     public function update(){
         $pdo = conexao();
         try{
-            $stmt = $pdo->prepare('UPDATE objeto SET nome_objeto = :nome, caracteristicas = :caracteristicas, historia_objeto = :historia, trivia_objeto = :trivia WHERE id_objeto = :id');
+            $stmt = $pdo->prepare('UPDATE objeto SET nome_objeto = :nome, caracteristicas = :caracteristicas, historia_objeto = :historia, trivia_objeto = :trivia, imagem = :imagem WHERE id_objeto = :id');
             $stmt->execute([
                 ':nome' => $this->nome,
                 ':caracteristicas' => $this->caracteristicas,
                 ':historia' => $this->historia,
                 ':trivia' => $this->trivia,
+                ':imagem' => $this->imagem,
                 ':id' => $this->id
             ]);
             return true;

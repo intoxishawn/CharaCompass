@@ -13,6 +13,12 @@ if ($acao === 'criar'){
     $personagem->__set("historia", $_POST['historia_p']);
     $personagem->__set("trivia", $_POST['trivia_p']);
     $personagem->__set("cliente_id", $clienteId);
+
+    if(isSet($_FILES['imagem_personagem'])){
+        $foto = Personagem::saveFile($_FILES['imagem_personagem']);
+        $personagem->__set("imagem", $foto);
+    }
+
     $personagem->save();
 
     header("Location: ../View/personagensUsuario.php");
@@ -27,6 +33,12 @@ if ($acao === 'criar'){
     $personagem->__set("personalidade", $_POST['personalidade_edit']);
     $personagem->__set("historia", $_POST['historia_edit']);
     $personagem->__set("trivia", $_POST['trivia_edit']);
+
+    if (isset($_FILES['imagem_personagem'])) {
+        $foto = Personagem::saveFile($_FILES['imagem_personagem']);
+        $personagem->__set("imagem", $foto);
+    }
+
     $personagem->update();
 
     header("Location: ../View/personagensUsuario.php");

@@ -1,11 +1,11 @@
 <?php
 session_start();
-if (!isset($_SESSION['id']) || !isset($_SESSION['nome'])) {
-    // Redireciona para a página de login se a sessão não estiver ativa
+if (session_status() === PHP_SESSION_ACTIVE) {
+    // Sessão está ativa
+} else {
     header("Location: login.php");
-    exit(); // Termina o script para garantir que a página não seja processada mais adiante
+    exit();
 }
-
 
 ?>
 
@@ -32,7 +32,7 @@ if (!isset($_SESSION['id']) || !isset($_SESSION['nome'])) {
     </div>
 
     <div>
-        <form action="../Controller/objetoController.php?acao=criar" method="POST">
+        <form action="../Controller/objetoController.php?acao=criar" method="POST" enctype="multipart/form-data">
             <h3> Nome do Objeto: </h3>
             <input type="text" name="nome_obj" id="nome_obj" required>
             <br>
@@ -52,7 +52,7 @@ if (!isset($_SESSION['id']) || !isset($_SESSION['nome'])) {
             <br>
 
             <h3>Como seria o seu objeto?</h3>
-            <input type="file" accept="image/*" multiple name="img_obj">
+            <input type="file" name="imagem_objeto" accept="image/*" class="input-imagem">
 
             <br><br><br>
             

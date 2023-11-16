@@ -1,11 +1,10 @@
 <?php
 session_start();
 if (session_status() === PHP_SESSION_ACTIVE) {
-    // Sessão está ativa, o usuário está logado
+    // Sessão está ativa
 } else {
-    // Sessão não está ativa, redirecione para a página de login
     header("Location: login.php");
-    exit(); // Encerrar o script após o redirecionamento
+    exit();
 }
 
 ?>
@@ -33,7 +32,7 @@ if (session_status() === PHP_SESSION_ACTIVE) {
     </div>
 
     <div>
-        <form action="../Controller/personagemController.php?acao=criar" method="POST">
+        <form action="../Controller/personagemController.php?acao=criar" method="POST" enctype="multipart/form-data">
           <h3> Nome do personagem: </h3>
           <input type="text" name="nome_p" id="nome_p">
           
@@ -60,7 +59,7 @@ if (session_status() === PHP_SESSION_ACTIVE) {
             <br><br>
 
             <h3> Como seu personagem é? </h3>
-            <input type="file" accept="image/*" multiple>
+            <input type="file" name="imagem_personagem" accept="image/*" class="input-imagem">
 
             <br><br><br>
             <input type="submit" value="Criar Ficha!">
