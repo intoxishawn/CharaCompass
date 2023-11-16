@@ -102,7 +102,7 @@
                 $stmt->execute([
                     ':email' => $this->email,
                 ]);
-    
+        
                 if ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
                     if (password_verify($this->senha, $row['senha_cliente'])) {
                         $_SESSION['id'] = $row['id_cliente'];

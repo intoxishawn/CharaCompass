@@ -3,15 +3,26 @@ session_start();
 
 include_once '../Model/Cliente.class.php';
 
-if(isset($_POST['email']) || isset($_POST['senha'])){
+if ($_SERVER["REQUEST_METHOD"] == "POST") { 
+    if(isset($_POST['email']) && isset($_POST['senha'])){
         $cliente = new Cliente();
         $cliente->setEmail($_POST['email']);
         $cliente->setSenha2($_POST['senha']);
-        $usuario->login();
+        $cliente->login();
+    } else {
+        $_SESSION['msg'] = "Ocorreu um erro. Por favor, preencha todos os campos.";
+        header("Location: ../View/login.php");
+        exit();
+    }
+}
+
+if (isset($_SESSION['msg'])) {
+    echo '<script>alert("' . $_SESSION['msg'] . '");</script>';
+    unset($_SESSION['msg']);
 }
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
