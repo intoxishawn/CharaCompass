@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 15-Nov-2023 às 21:59
+-- Tempo de geração: 16-Nov-2023 às 12:43
 -- Versão do servidor: 10.4.27-MariaDB
 -- versão do PHP: 8.2.0
 
@@ -35,15 +35,6 @@ CREATE TABLE `cliente` (
   `pfp_caminho` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
---
--- Extraindo dados da tabela `cliente`
---
-
-INSERT INTO `cliente` (`id_cliente`, `nome_cliente`, `email_cliente`, `senha_cliente`, `pfp_caminho`) VALUES
-(11, 'intoxishawn', 'nicolini.larissa@gmail.com', '$2y$10$CpLrFEKNXyzF/pLoTnfxr.OUfyIXOcEPj30Ax4vTgIf.9m/miJXEK', NULL),
-(12, 'caraca', 'waltermorais7@gmail.com', '$2y$10$0FYC167BGywQQ5PIpCEa6Ocrvr7bI3zqvOdFVnN./O62R7qABKjdi', NULL),
-(13, 'pinto', 'pinto@gmail.com', '$2y$10$JQTip3tKUpC9i8LfqwvJJej3DJlR5Lo0HT707PRonVPv7/poHGS1e', NULL);
-
 -- --------------------------------------------------------
 
 --
@@ -58,13 +49,6 @@ CREATE TABLE `mundo` (
   `cliente_id` int(255) NOT NULL,
   `imagem` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
-
---
--- Extraindo dados da tabela `mundo`
---
-
-INSERT INTO `mundo` (`id_mundo`, `nome_mundo`, `info_mundo`, `trivia_mundo`, `cliente_id`, `imagem`) VALUES
-(8, 'Mundo rosa', '70% do mundo é agua rosa e 30% é terra azul<br>', 'Tem peixes verdes<br>', 12, NULL);
 
 -- --------------------------------------------------------
 
@@ -82,7 +66,6 @@ CREATE TABLE `objeto` (
   `imagem` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
-
 -- --------------------------------------------------------
 
 --
@@ -99,13 +82,6 @@ CREATE TABLE `personagem` (
   `cliente_id` int(255) NOT NULL,
   `imagem` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
-
---
--- Extraindo dados da tabela `personagem`
---
-
-INSERT INTO `personagem` (`id_personagem`, `nome_personagem`, `info_personagem`, `personalidade`, `historia`, `trivia_personagem`, `cliente_id`, `imagem`) VALUES
-(5, 'Henry Magnolium', 'Henry é um incubus nascido de um humano com uma succubus.<br>', 'Medroso e paranóico, porém muito otimista com o seu relacionamento com John<br>', 'Henry fugiu de sua terra natal após se envolver com um anjo.<br>', 'Henry tem 1,65m e pesa 45kg<br>', 11, NULL);
 
 --
 -- Índices para tabelas despejadas
@@ -146,25 +122,25 @@ ALTER TABLE `personagem`
 -- AUTO_INCREMENT de tabela `cliente`
 --
 ALTER TABLE `cliente`
-  MODIFY `id_cliente` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id_cliente` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT de tabela `mundo`
 --
 ALTER TABLE `mundo`
-  MODIFY `id_mundo` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id_mundo` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT de tabela `objeto`
 --
 ALTER TABLE `objeto`
-  MODIFY `id_objeto` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id_objeto` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT de tabela `personagem`
 --
 ALTER TABLE `personagem`
-  MODIFY `id_personagem` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_personagem` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- Restrições para despejos de tabelas
