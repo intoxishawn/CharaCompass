@@ -1,11 +1,11 @@
 <?php 
 session_start();
 if (session_status() === PHP_SESSION_ACTIVE) {
-    // Sessão está ativa, o usuário está logado
+    // Sessão está ativa
 } else {
-    // Sessão não está ativa, redirecione para a página de login
+    
     header("Location: login.php");
-    exit(); // Encerrar o script após o redirecionamento
+    exit();
 }
 
 include_once '../Controller/Conexao.php';
@@ -40,7 +40,6 @@ $criacao = Mundo::getOne($id);
 
     <div>
     <?php
-        // Verificando se a criação foi encontrada
         if ($criacao) {
             echo "<div id=\"titulopagina\">";
             echo "<h3>" . $criacao['nome_mundo'] . "</h3>";

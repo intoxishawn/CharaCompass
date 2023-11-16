@@ -18,6 +18,7 @@ if ($acao === 'criar') {
     $mundo->save();
     header("Location: ../View/mundosUsuario.php");
     exit();
+
 } else if($acao === 'atualizar'){
     include_once '../Model/Mundo.class.php';
     $mundo = new Mundo();
@@ -25,10 +26,18 @@ if ($acao === 'criar') {
     $mundo->__set("nome", $_POST['ed_name']);
     $mundo->__set("info", $_POST['ed_info']);
     $mundo->__set("trivia", $_POST['ed_trivia']);
+
+
+    if (isset($_FILES['imagem_ed'])) {
+        $foto = Mundo::saveFile($_FILES['imagem_ed']);
+        $mundo->__set("imagem", $foto);
+    }
+
     $mundo->update();
     
     header("Location: ../View/mundosUsuario.php");
     exit();
+
 } else if($acao === 'deletar'){
     include_once '../Model/Mundo.class.php';
     Mundo::delete($_REQUEST['id']);

@@ -159,7 +159,7 @@ class Mundo{
                     ':nome' => $this->nome,
                     ':info' => $this->info,
                     ':trivia' => $this->trivia,
-                    ':imagem' =>this->imagem,
+                    ':imagem' =>$this->imagem,
                     ':id' => $this->id
                 ]);
                 return true;

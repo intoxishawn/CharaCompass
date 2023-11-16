@@ -44,7 +44,7 @@ $mundo = Mundo::getOne($id);
     </div>
 
     <div>
-        <form action="../Controller/mundoController.php?acao=atualizar" method="POST">
+        <form action="../Controller/mundoController.php?acao=atualizar" method="POST" enctype="multipart/form-data">
             <input type="hidden" name="id" value="<?php echo $mundo['id_mundo']; ?>">
             
             <h3> Nome do Mundo: </h3>
@@ -60,7 +60,10 @@ $mundo = Mundo::getOne($id);
                 <h3> Trivias do mundo: </h3>
                 <textarea class="summernote" name="ed_trivia" id="ed_trivia"><?php echo $mundo['trivia_mundo']; ?></textarea>
             </div>
-            <br>
+
+            <h3> Como seria seu mundo?</h3>
+            <input type="file" name="imagem_ed" accept="image/*" class="input-imagem">
+            <br><br>
             <input type="submit" value="Atualizar">
         </form>
     </div>
